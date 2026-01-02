@@ -1,11 +1,32 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
-  const [activeTab, setActiveTab] = useState("Home");
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const tabs = ["Home", "For Partners", "For Customers"];
+  // Determine active tab based on current pathname
+  const getActiveTab = () => {
+    if (pathname === "/partners") return "For Partners";
+    if (pathname === "/customers") return "For Customers";
+    return "Home";
+  };
+
+  const [activeTab, setActiveTab] = useState(getActiveTab());
+
+  const tabs = [
+    { label: "Home", path: "/home" },
+    { label: "For Partners", path: "/partners" },
+    { label: "For Customers", path: "/customers" },
+  ];
+
+  const handleTabClick = (tab: any) => {
+    setActiveTab(tab.label);
+    router.push(tab.path);
+  };
 
   return (
     <nav
@@ -21,12 +42,12 @@ export default function Navbar() {
       <div className="flex items-center gap-8">
         {tabs.map((tab) => (
           <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
+            key={tab.label}
+            onClick={() => handleTabClick(tab)}
             className="relative text-white text-sm font-medium pb-1 transition-colors hover:text-gray-300"
           >
-            {tab}
-            {activeTab === tab && (
+            {tab.label}
+            {activeTab === tab.label && (
               <div className="absolute bottom-0 left-0 right-0 h-px bg-white" />
             )}
           </button>
