@@ -113,7 +113,7 @@ export default function Home() {
           <div className="relative flex justify-center lg:justify-end items-center h-full max-h-[87.5vh]">
             <div className="relative w-full  h-full flex items-center justify-center">
               <img
-                src="/hero.png"
+                src="/Hero.png"
                 alt="RIZZerv App Interface"
                 className="w-full h-auto max-h-full object-contain"
               />
