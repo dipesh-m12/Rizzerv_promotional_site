@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <nav
       style={{ background: "#0A0A0A" }}
-      className="px-8 py-4 flex items-center justify-between"
+      className="px-8 py-4 h-[12.5vh] flex items-center justify-between"
     >
       {/* Left - Logo */}
       <div className="flex items-center">
