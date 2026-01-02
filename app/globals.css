@@ -22,3 +22,19 @@ body {
   color: #000;
   font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Add this to your globals.css file */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
