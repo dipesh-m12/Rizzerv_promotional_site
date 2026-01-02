@@ -89,7 +89,7 @@ export default function Home() {
             </button>
 
             {/* Heading */}
-            <h1 className="text-white font-semibold agenda-font">
+            <h1 className="text-white font-semibold font-agenda">
               <span className="block text-4xl md:text-5xl lg:text-5xl leading-tight">
                 No calls. No waiting.
               </span>
@@ -194,21 +194,19 @@ export default function Home() {
             <div className="inline-flex rounded-[80px] p-1 bg-[#121212] border border-[#3E3D51]">
               <button
                 onClick={() => setActiveTab("customers")}
-                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${
-                  activeTab === "customers"
+                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${activeTab === "customers"
                     ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
                     : "bg-transparent text-white hover:text-white/80"
-                }`}
+                  }`}
               >
                 For Customers
               </button>
               <button
                 onClick={() => setActiveTab("providers")}
-                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${
-                  activeTab === "providers"
+                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${activeTab === "providers"
                     ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
                     : "bg-transparent text-white hover:text-white/80"
-                }`}
+                  }`}
               >
                 For Providers
               </button>
