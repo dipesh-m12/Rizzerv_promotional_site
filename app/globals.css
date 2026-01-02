@@ -21,7 +21,7 @@
 
 body {
   color: #000;
-  font-family: var(--font-open-sans), Arial, Helvetica, sans-serif;
+  /* font-family: var(--font-open-sans), Arial, Helvetica, sans-serif; */
 }
 
 /* Add this to your globals.css file */

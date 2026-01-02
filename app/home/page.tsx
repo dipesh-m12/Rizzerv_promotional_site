@@ -3,12 +3,22 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { FaMapMarkerAlt, FaCalendarAlt, FaShieldAlt, FaTag, FaUsers, FaSlidersH, FaCheckCircle } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaShieldAlt,
+  FaTag,
+  FaUsers,
+  FaSlidersH,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState({ stat1: 0, stat2: 0, stat3: 0 });
-  const [activeTab, setActiveTab] = useState<"customers" | "providers">("customers");
+  const [activeTab, setActiveTab] = useState<"customers" | "providers">(
+    "customers"
+  );
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -58,7 +68,7 @@ export default function Home() {
   }, [isVisible]);
 
   return (
-    <div style={{ background: "#0A0A0A" }}>
+    <div style={{ background: "#000000" }}>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-16 xl:px-20">
         <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-12 lg:py-0">
@@ -89,13 +99,16 @@ export default function Home() {
             </h1>
 
             {/* Subheading */}
-            <p className="text-white/90 text-sm md:text-base leading-relaxed font-normal max-w-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>
+            <p
+              className="text-white/90 text-sm md:text-base leading-relaxed font-normal max-w-lg"
+              style={{ fontFamily: "Open Sans, sans-serif" }}
+            >
               Your favourite salons and wellness experts; all in <br />
               one app. Book instantly, anytime, through RIZZerv.
             </p>
 
             {/* CTA Button with Enhanced Shine Effect */}
-            <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group">
+            <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-linear-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group">
               <span className="relative z-10">Get early access</span>
               {/* Shine effect layer 1 */}
               <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
@@ -170,7 +183,8 @@ export default function Home() {
             </h2>
             <p className="text-white/80 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
               Whether you&apos;re booking a service or providing them, <br />
-              RIZZerv adapts to how you work, with experiences designed<br />
+              RIZZerv adapts to how you work, with experiences designed
+              <br />
               just for you.
             </p>
           </div>
@@ -180,19 +194,21 @@ export default function Home() {
             <div className="inline-flex rounded-[80px] p-1 bg-[#121212] border border-[#3E3D51]">
               <button
                 onClick={() => setActiveTab("customers")}
-                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${activeTab === "customers"
-                  ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
-                  : "bg-transparent text-white hover:text-white/80"
-                  }`}
+                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${
+                  activeTab === "customers"
+                    ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
+                    : "bg-transparent text-white hover:text-white/80"
+                }`}
               >
                 For Customers
               </button>
               <button
                 onClick={() => setActiveTab("providers")}
-                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${activeTab === "providers"
-                  ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
-                  : "bg-transparent text-white hover:text-white/80"
-                  }`}
+                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${
+                  activeTab === "providers"
+                    ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
+                    : "bg-transparent text-white hover:text-white/80"
+                }`}
               >
                 For Providers
               </button>
@@ -208,7 +224,8 @@ export default function Home() {
                   Why RIZZerv?
                 </h3>
                 <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8">
-                  Every salon and professional is verified and reviewed, so you book with confidence, every time.
+                  Every salon and professional is verified and reviewed, so you
+                  book with confidence, every time.
                 </p>
 
                 <div className="space-y-6">
@@ -217,7 +234,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaMapMarkerAlt size={20} color="#FFFFFF" />
@@ -237,7 +255,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaCalendarAlt size={20} color="#FFFFFF" />
@@ -257,7 +276,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaShieldAlt size={20} color="#FFFFFF" />
@@ -267,7 +287,8 @@ export default function Home() {
                         Verified Reviews
                       </h4>
                       <p className="text-white/70 text-sm">
-                        Real reviews from real customers. No filters. No fake ratings.
+                        Real reviews from real customers. No filters. No fake
+                        ratings.
                       </p>
                     </div>
                   </div>
@@ -277,7 +298,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaTag size={20} color="#FFFFFF" />
@@ -287,7 +309,8 @@ export default function Home() {
                         Transparent Service Menu & Pricing
                       </h4>
                       <p className="text-white/70 text-sm">
-                        Know what is on offer & plan your budget before you reach the salon!
+                        Know what is on offer & plan your budget before you
+                        reach the salon!
                       </p>
                     </div>
                   </div>
@@ -312,7 +335,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaUsers size={20} color="#FFFFFF" />
@@ -332,7 +356,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaSlidersH size={20} color="#FFFFFF" />
@@ -342,7 +367,8 @@ export default function Home() {
                         Ease Management
                       </h4>
                       <p className="text-white/70 text-sm">
-                        Dashboard provides full control to manage your appointments, staff and everything else
+                        Dashboard provides full control to manage your
+                        appointments, staff and everything else
                       </p>
                     </div>
                   </div>
@@ -352,7 +378,8 @@ export default function Home() {
                     <div
                       className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)"
+                        background:
+                          "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
                       }}
                     >
                       <FaCheckCircle size={20} color="#FFFFFF" />
@@ -378,8 +405,16 @@ export default function Home() {
             <div className="relative flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[450px] animate-float-slow">
                 <Image
-                  src={activeTab === "customers" ? "/customer.png" : "/provider.png"}
-                  alt={activeTab === "customers" ? "Customer App" : "Provider Dashboard"}
+                  src={
+                    activeTab === "customers"
+                      ? "/customer.png"
+                      : "/provider.png"
+                  }
+                  alt={
+                    activeTab === "customers"
+                      ? "Customer App"
+                      : "Provider Dashboard"
+                  }
                   width={500}
                   height={500}
                   className="w-full h-auto"
@@ -395,7 +430,12 @@ export default function Home() {
         {/* Background Circles - Enhanced brightness */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="relative w-[800px] h-[800px] md:w-[1000px] md:h-[1000px] lg:w-[1200px] lg:h-[1200px] opacity-60 brightness-150">
-            <Image src="/circles.png" alt="Concentric Rings" fill className="object-contain" />
+            <Image
+              src="/circles.png"
+              alt="Concentric Rings"
+              fill
+              className="object-contain"
+            />
           </div>
         </div>
 
@@ -427,9 +467,17 @@ export default function Home() {
           </h2>
 
           {/* Description - MATCHED TO HERO SUBHEADING */}
-          <p className="text-sm md:text-base leading-relaxed font-normal max-w-3xl mx-auto mb-6" style={{ fontFamily: 'Open Sans, sans-serif', color: 'rgba(121, 122, 121, 1)' }}>
-            Rizzerv is a straight-up platform for hairdressing, salons, saree-draping, <br className="hidden md:block" />
-            spas, and much more. No, we don&apos;t charge extra. All we do is list the <br className="hidden md:block" />
+          <p
+            className="text-sm md:text-base leading-relaxed font-normal max-w-3xl mx-auto mb-6"
+            style={{
+              fontFamily: "Open Sans, sans-serif",
+              color: "rgba(121, 122, 121, 1)",
+            }}
+          >
+            Rizzerv is a straight-up platform for hairdressing, salons,
+            saree-draping, <br className="hidden md:block" />
+            spas, and much more. No, we don&apos;t charge extra. All we do is
+            list the <br className="hidden md:block" />
             best service providers here.
           </p>
 
@@ -515,35 +563,37 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Get Started Section */}
-      <section className="px-6 md:px-12 lg:px-16 xl:px-20 pb-0 pt-12 md:pt-16 lg:pt-20" style={{ background: "#0A0A0A" }}>
+      <section
+        className="px-6 md:px-12 lg:px-16 xl:px-20 pb-10 pt-12 md:pt-16 lg:pt-20"
+        style={{ background: "#000000" }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Card - Customer */}
             <div className="bg-[#0B0B0B] rounded-t-[32px] p-8 lg:p-10 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden">
               {/* Icon Badge */}
               <div className="mb-6">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
                   <Image
                     src="/rocket.png"
                     alt="Customer"
                     width={24}
                     height={24}
-                    className="brightness-0 invert"
+                    className="brightness-0 "
                   />
                 </div>
               </div>
 
               {/* Heading */}
-              <h3 className="text-white text-2xl md:text-3xl font-semibold mb-4 agenda-font">
-                We&apos;re here to make <br />
-                booking easy.
+              <h3 className="text-white text-2xl md:text-4xl font-semibold mb-4 font-agenda tracking-wider ">
+                We&apos;re here to make booking easy.
               </h3>
 
               {/* Description */}
               <p className="text-white/60 text-sm md:text-base mb-8 leading-relaxed">
-                Book appointments instantly, anytime; no calls, no waiting, no stress. Discover verified salons and wellness experts near you!
+                Book appointments instantly, anytime; no calls, no waiting, no
+                stress. Discover verified salons and wellness experts near you!
               </p>
 
               {/* CTA Button */}
@@ -569,25 +619,27 @@ export default function Home() {
             <div className="bg-[#0B0B0B] rounded-t-[32px] p-8 lg:p-10 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden">
               {/* Icon Badge */}
               <div className="mb-6">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
                   <Image
                     src="/rocket.png"
                     alt="Provider"
                     width={24}
                     height={24}
-                    className="brightness-0 invert"
+                    className="brightness-0 "
                   />
                 </div>
               </div>
 
               {/* Heading */}
-              <h3 className="text-white text-2xl md:text-3xl font-semibold mb-4 agenda-font">
+              <h3 className="text-white text-2xl  md:text-4xl font-semibold mb-4 font-agenda tracking-wider">
                 We help you get booked.
               </h3>
 
               {/* Description */}
               <p className="text-white/60 text-sm md:text-base mb-8 leading-relaxed">
-                List your services, manage appointments, and get discovered by real customers — all from one simple dashboard. Just better visibility and more bookings.
+                List your services, manage appointments, and get discovered by
+                real customers — all from one simple dashboard. Just better
+                visibility and more bookings.
               </p>
 
               {/* CTA Button */}
