@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 // app/register/page.tsx
 "use client";
 
@@ -11,17 +12,15 @@ export default function RegisterPage() {
   return (
     <div style={{ background: "#0A0A0A" }}>
       {/* Hero/CTA Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-16 xl:px-20">
-        <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center py-12 lg:py-0">
-          {/* Left Content */}
-          <div className="flex flex-col space-y-6">
+      <section className="h-[87.5vh] flex items-center justify-center px-6 md:px-12 lg:px-16 xl:px-20 overflow-hidden bg-black">
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+          {/* Left Content - Takes 2 columns */}
+          <div className="lg:col-span-2 flex flex-col space-y-6">
             {/* Badge */}
-            <button className="flex items-center gap-2.5 w-fit px-4 py-2.5 rounded-[40px] border bg-transparent shadow-[inset_2px_2px_40px_0px_rgba(243,239,230,0.1)] hover:bg-white/5 transition-colors">
-              <Image
+            <button className="flex items-center gap-2.5 w-fit px-4 py-2.5 rounded-[40px] border border-[#ECE8DE] bg-transparent shadow-[inset_2px_2px_40px_0px_rgba(243,239,230,0.1)] hover:bg-white/5 transition-colors">
+              <img
                 src="/rocket.png"
                 alt="Early Access"
-                width={20}
-                height={20}
                 className="w-5 h-5 brightness-0 invert"
               />
               <span className="text-white text-sm font-normal">
@@ -31,17 +30,19 @@ export default function RegisterPage() {
 
             {/* Heading */}
             <h1 className="text-white font-semibold font-agenda">
-              <span className="block text-4xl md:text-5xl lg:text-5xl leading-tight">
+              <span className="block text-4xl md:text-5xl lg:text-6xl leading-tight tracking-wider">
                 You&apos;ve come to
               </span>
-              <span className="block text-4xl md:text-5xl lg:text-5xl leading-tight mt-1">
+              <span className="block text-4xl md:text-5xl lg:text-6xl leading-tight tracking-wider mt-1">
                 the right place.
               </span>
             </h1>
 
             {/* Description */}
-            <p className="text-white/90 text-sm md:text-base leading-relaxed font-normal max-w-lg" style={{ fontFamily: 'Open Sans, sans-serif' }}>
-              An online platform that gives you <br/>visibility 24*7. All you need to do is handle <br/> more business. Ready?
+            <p className="text-white/90 text-sm md:text-base leading-relaxed font-normal max-w-lg">
+              An online platform that gives you <br />
+              visibility 24*7. All you need to do is handle <br /> more
+              business. Ready?
             </p>
 
             {/* CTA Button */}
@@ -52,16 +53,13 @@ export default function RegisterPage() {
             </button>
           </div>
 
-          {/* Right Content - Dashboard Image */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[500px] animate-float-slow">
-              <Image
+          {/* Right Content - Dashboard Image - Takes 3 columns */}
+          <div className="lg:col-span-3 relative flex justify-center lg:justify-end items-center h-full max-h-[70vh]">
+            <div className="relative w-full max-w-[650px] h-full flex items-center justify-center">
+              <img
                 src="/last2.png"
                 alt="RIZZerv Dashboard"
-                width={600}
-                height={400}
-                className="w-full h-auto rounded-2xl"
-                priority
+                className="w-full h-auto max-h-full object-contain rounded-2xl"
               />
             </div>
           </div>
@@ -69,7 +67,12 @@ export default function RegisterPage() {
       </section>
 
       {/* Stats Section with Teal Gradient */}
-      <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20" style={{ background: "linear-gradient(180deg, #3C8F7C 0%, #5FAA97 100%)" }}>
+      <section
+        className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20"
+        style={{
+          background: "linear-gradient(180deg, #3C8F7C 0%, #5FAA97 100%)",
+        }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 lg:gap-20">
             {[1, 2, 3, 4].map((stat) => (
@@ -78,7 +81,8 @@ export default function RegisterPage() {
                   {waitingCount / 1000}k
                 </h3>
                 <p className="text-white text-xs md:text-sm lg:text-base leading-relaxed">
-                  Users joined the<br />
+                  Users joined the
+                  <br />
                   waiting list already
                 </p>
               </div>
@@ -88,7 +92,10 @@ export default function RegisterPage() {
       </section>
 
       {/* Subscription Plans Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20" style={{ background: "#0A0A0A" }}>
+      <section
+        className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20"
+        style={{ background: "#0A0A0A" }}
+      >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -96,7 +103,8 @@ export default function RegisterPage() {
               Subscription Plans
             </h2>
             <p className="text-white/80 text-sm md:text-base max-w-3xl mx-auto leading-relaxed">
-              We take care of bookings, payments [if you want us to]<br />
+              We take care of bookings, payments [if you want us to]
+              <br />
               and more [need to add one more feature here].
             </p>
           </div>
@@ -117,25 +125,37 @@ export default function RegisterPage() {
               </div>
 
               <div className="mb-4">
-                <span className="text-[#FB4683] text-4xl font-bold" style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 500 }}>Rs 600</span>
+                <span
+                  className="text-[#FB4683] text-4xl font-bold"
+                  style={{
+                    fontFamily: "Open Sans, sans-serif",
+                    fontWeight: 500,
+                  }}
+                >
+                  Rs 600
+                </span>
                 <span className="text-sm text-gray-600">/month</span>
               </div>
 
-              <p className="text-sm text-gray-600 mb-6">Perfect for small businesses</p>
+              <p className="text-sm text-gray-600 mb-6">
+                Perfect for small businesses
+              </p>
 
               <button
                 className="w-full py-3 rounded-xl text-black font-semibold transition-all duration-300 hover:opacity-90 mb-8"
                 style={{
-                  
-                  border: '1px solid rgba(221, 221, 221, 1)',
-                  boxShadow: '0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset'
+                  border: "1px solid rgba(221, 221, 221, 1)",
+                  boxShadow:
+                    "0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset",
                 }}
               >
                 Choose this plan
               </button>
 
               <div className="flex-1">
-                <p className="text-sm font-semibold mb-4">What&apos;s Included:</p>
+                <p className="text-sm font-semibold mb-4">
+                  What&apos;s Included:
+                </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -171,25 +191,38 @@ export default function RegisterPage() {
               </div>
 
               <div className="mb-4">
-                <span className="text-white text-4xl font-bold" style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 500 }}>Rs 800</span>
+                <span
+                  className="text-white text-4xl font-bold"
+                  style={{
+                    fontFamily: "Open Sans, sans-serif",
+                    fontWeight: 500,
+                  }}
+                >
+                  Rs 800
+                </span>
                 <span className="text-sm text-white/60">/month</span>
               </div>
 
-              <p className="text-sm text-white/60 mb-6">For Growing Salons with up to 2 branches</p>
+              <p className="text-sm text-white/60 mb-6">
+                For Growing Salons with up to 2 branches
+              </p>
 
               <button
                 className="w-full py-3 rounded-xl text-black font-semibold transition-all duration-300 hover:opacity-90 mb-8"
                 style={{
-                  background: 'white',
-                  border: '1px solid rgba(221, 221, 221, 1)',
-                  boxShadow: '0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset'
+                  background: "white",
+                  border: "1px solid rgba(221, 221, 221, 1)",
+                  boxShadow:
+                    "0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset",
                 }}
               >
                 Choose this plan
               </button>
 
               <div className="flex-1">
-                <p className="text-sm font-semibold mb-4 text-white">What&apos;s Included:</p>
+                <p className="text-sm font-semibold mb-4 text-white">
+                  What&apos;s Included:
+                </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm text-white/80">
                     <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-white" />
@@ -225,25 +258,37 @@ export default function RegisterPage() {
               </div>
 
               <div className="mb-4">
-                <span className="text-[#FB4683] text-4xl font-bold" style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 500 }}>Rs 1000</span>
+                <span
+                  className="text-[#FB4683] text-4xl font-bold"
+                  style={{
+                    fontFamily: "Open Sans, sans-serif",
+                    fontWeight: 500,
+                  }}
+                >
+                  Rs 1000
+                </span>
                 <span className="text-sm text-gray-600">/month</span>
               </div>
 
-              <p className="text-sm text-gray-600 mb-6">Perfect for small businesses</p>
+              <p className="text-sm text-gray-600 mb-6">
+                Perfect for small businesses
+              </p>
 
               <button
                 className="w-full py-3 rounded-xl text-black font-semibold transition-all duration-300 hover:opacity-90 mb-8"
                 style={{
-                  
-                  border: '1px solid rgba(221, 221, 221, 1)',
-                  boxShadow: '0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset'
+                  border: "1px solid rgba(221, 221, 221, 1)",
+                  boxShadow:
+                    "0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset",
                 }}
               >
                 Choose this plan
               </button>
 
               <div className="flex-1">
-                <p className="text-sm font-semibold mb-4">What&apos;s Included:</p>
+                <p className="text-sm font-semibold mb-4">
+                  What&apos;s Included:
+                </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -279,25 +324,37 @@ export default function RegisterPage() {
               </div>
 
               <div className="mb-4">
-                <span className="text-[#FB4683] text-4xl font-bold" style={{ fontFamily: 'Open Sans, sans-serif', fontWeight: 500 }}>Rs 1000</span>
+                <span
+                  className="text-[#FB4683] text-4xl font-bold"
+                  style={{
+                    fontFamily: "Open Sans, sans-serif",
+                    fontWeight: 500,
+                  }}
+                >
+                  Rs 1000
+                </span>
                 <span className="text-sm text-gray-600">/month</span>
               </div>
 
-              <p className="text-sm text-gray-600 mb-6">Suitable for Enterprises with more than 1 branch or franchises</p>
+              <p className="text-sm text-gray-600 mb-6">
+                Suitable for Enterprises with more than 1 branch or franchises
+              </p>
 
               <button
                 className="w-full py-3 rounded-xl text-black font-semibold transition-all duration-300 hover:opacity-90 mb-8"
                 style={{
-                  
-                  border: '1px solid rgba(221, 221, 221, 1)',
-                  boxShadow: '0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset'
+                  border: "1px solid rgba(221, 221, 221, 1)",
+                  boxShadow:
+                    "0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset",
                 }}
               >
                 Choose this plan
               </button>
 
               <div className="flex-1">
-                <p className="text-sm font-semibold mb-4">What&apos;s Included:</p>
+                <p className="text-sm font-semibold mb-4">
+                  What&apos;s Included:
+                </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm">
                     <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
@@ -323,21 +380,28 @@ export default function RegisterPage() {
       </section>
 
       {/* Built to Help Your Business Grow Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20" style={{ background: "#0A0A0A" }}>
+      <section
+        className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20"
+        style={{ background: "#0A0A0A" }}
+      >
         <div className="max-w-7xl mx-auto">
           {/* Top Row - Heading and Subheading */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-90 items-center mb-12">
             {/* Left - Heading */}
             <div>
               <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold font-agenda leading-tight">
-                Built to Help Your<br />Business Grow
+                Built to Help Your
+                <br />
+                Business Grow
               </h2>
             </div>
 
             {/* Right - Description */}
             <div>
               <p className="text-white/70 text-sm md:text-base leading-relaxed">
-                From visibility to automated bookings, Rizzer gives <br/>you the tools to attract more customers and run <br/>smarter.
+                From visibility to automated bookings, Rizzer gives <br />
+                you the tools to attract more customers and run <br />
+                smarter.
               </p>
             </div>
           </div>
@@ -348,8 +412,8 @@ export default function RegisterPage() {
             <div
               className="bg-black rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{
-                border: '0.94px solid rgba(221, 221, 221, 1)',
-                boxShadow: '0px 0px 5.66px 0.94px rgba(0, 0, 0, 0.32) inset'
+                border: "0.94px solid rgba(221, 221, 221, 1)",
+                boxShadow: "0px 0px 5.66px 0.94px rgba(0, 0, 0, 0.32) inset",
               }}
             >
               <div className="mb-32">
@@ -367,7 +431,8 @@ export default function RegisterPage() {
                 Glow under the limelight
               </h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                When listed on Rizzerv, you get discovered by more potential customers.
+                When listed on Rizzerv, you get discovered by more potential
+                customers.
               </p>
             </div>
 
@@ -375,9 +440,10 @@ export default function RegisterPage() {
             <div
               className="rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               style={{
-                background: '#CCF656',
-               
-                boxShadow: '0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset'
+                background: "#CCF656",
+
+                boxShadow:
+                  "0px 0px 9.4px 1.88px rgba(255, 255, 255, 0.32) inset",
               }}
             >
               <div className="mb-32">
@@ -395,7 +461,8 @@ export default function RegisterPage() {
                 Bookings - Automated!
               </h3>
               <p className="text-black/70 text-sm leading-relaxed">
-                With Rizz, your business gets organised and jam-packed! Customers can see the slots available in real time.
+                With Rizz, your business gets organised and jam-packed!
+                Customers can see the slots available in real time.
               </p>
             </div>
 
@@ -403,8 +470,8 @@ export default function RegisterPage() {
             <div
               className="bg-black rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               style={{
-                border: '0.94px solid rgba(221, 221, 221, 1)',
-                boxShadow: '0px 0px 5.66px 0.94px rgba(0, 0, 0, 0.32) inset'
+                border: "0.94px solid rgba(221, 221, 221, 1)",
+                boxShadow: "0px 0px 5.66px 0.94px rgba(0, 0, 0, 0.32) inset",
               }}
             >
               <div className="mb-32">
@@ -422,7 +489,8 @@ export default function RegisterPage() {
                 More with less
               </h3>
               <p className="text-white/60 text-sm leading-relaxed">
-                Less time spent marketing and taking bookings. More customer churn, more revenue and more smiles.
+                Less time spent marketing and taking bookings. More customer
+                churn, more revenue and more smiles.
               </p>
             </div>
           </div>
@@ -430,7 +498,10 @@ export default function RegisterPage() {
       </section>
 
       {/* Ready to Grow CTA Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20" style={{ background: "#0A0A0A" }}>
+      <section
+        className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20"
+        style={{ background: "#1F2022" }}
+      >
         <div className="max-w-4xl mx-auto text-center">
           {/* Heading */}
           <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold mb-6 font-agenda">
@@ -439,7 +510,8 @@ export default function RegisterPage() {
 
           {/* Description */}
           <p className="text-white/70 text-sm md:text-base leading-relaxed mb-8 max-w-2xl mx-auto">
-            Join Rizzerv and get discovered by new customers, automate bookings, and run your salon smarter from day one.
+            Join Rizzerv and get discovered by new customers, automate bookings,
+            and run your salon smarter from day one.
           </p>
 
           {/* CTA Button */}
