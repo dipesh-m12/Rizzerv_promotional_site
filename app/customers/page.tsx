@@ -1,72 +1,90 @@
 import Hero from "@/components/Customer/Hero";
-import { Droplet, Dumbbell, Scissors, Users } from "lucide-react";
 
 /* eslint-disable @next/next/no-img-element */
 export default function HeroSection() {
   return (
     <>
       <Hero />
-      <div className="relative h-[140vh]">
-        {/* Black Section - Top */}
-        <div className="bg-white h-[70vh] relative overflow-hidden">
-          {/* Concentric Circles with Icons */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-[500px] h-[500px]">
-              {/* Outer Circle */}
-              <div className="absolute inset-0 border border-gray-200 rounded-full"></div>
+      <div className="relative">
+        {/* White Top Section - 60vh */}
+        <section
+          className="relative bg-white overflow-hidden"
+          style={{ height: "60vh" }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
+            {/* Launching Soon Badge */}
+            <div className="flex justify-center mb-2">
+              <div className="flex items-center gap-2  rounded-full px-4 py-2 mb-2 border-1 border-[#ECE8DE] w-fit mx-auto">
+                <img src="/rocket.png" alt="Rocket" className="w-4 h-4 " />
+                <span className="text-black text-sm">Launching Soon</span>
+              </div>
+            </div>
 
-              {/* Middle Circle */}
-              <div className="absolute inset-[20%] border border-gray-200 rounded-full"></div>
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-6  font-agenda tracking-wider">
+              No calls. No waiting.
+              <br />
+              Just booked.
+            </h1>
 
-              {/* Inner Circle */}
-              <div className="absolute inset-[40%] border border-gray-200 rounded-full"></div>
+            {/* Subheading */}
+            <p className="text-center text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+              Your favourite salons and wellness experts; all in
+              <br /> one app. Book instantly, anytime, through RIZZerv.
+            </p>
 
-              {/* Top Left Icon */}
-              <div className="absolute -top-2 left-[15%] bg-black rounded-full p-3">
-                <Scissors className="w-5 h-5 text-white" />
+            {/* Halo Icons - Concentric Circles with Icons */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <img
+                src="/halo_icons.png"
+                alt="Services"
+                className="w-full max-w-4xl h-auto opacity-80"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Phone Mockup - Overlapping Both Sections */}
+        <div
+          className="absolute left-1/2 transform -translate-x-1/2 z-30"
+          style={{ top: "45vh" }}
+        >
+          <img
+            src="/cus_phone.png"
+            alt="RIZZerv App"
+            className="w-64 md:w-80 lg:w-64 h-auto drop-shadow-2xl"
+          />
+        </div>
+
+        {/* Black Bottom Section - 60vh */}
+        <section
+          className="relative bg-black text-white overflow-visible"
+          style={{ height: "60vh" }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div className="grid grid-cols-2 gap-8 md:gap-12 h-full items-center">
+              {/* Left - 100% Stat */}
+              <div className="flex flex-col items-end justify-center pr-8 md:pr-16 lg:pr-32">
+                <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 font-agenda">
+                  100%
+                </div>
+                <div className="text-base md:text-lg lg:text-xl text-white/80">
+                  Verified Providers
+                </div>
               </div>
 
-              {/* Top Right Icon */}
-              <div className="absolute top-[15%] -right-2 bg-black rounded-full p-3">
-                <Droplet className="w-5 h-5 text-white" />
-              </div>
-
-              {/* Bottom Left Icon */}
-              <div className="absolute bottom-[15%] -left-2 bg-black rounded-full p-3">
-                <Dumbbell className="w-5 h-5 text-white" />
-              </div>
-
-              {/* Bottom Right Icon */}
-              <div className="absolute -bottom-2 right-[15%] bg-black rounded-full p-3">
-                <Users className="w-5 h-5 text-white" />
+              {/* Right - 5min Stat */}
+              <div className="flex flex-col items-start justify-center pl-8 md:pl-16 lg:pl-32">
+                <div className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2 font-agenda">
+                  5min
+                </div>
+                <div className="text-base md:text-lg lg:text-xl text-white/80">
+                  Avg. Booking Time
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Black Section - Bottom */}
-        <div className="bg-black h-[70vh] relative">
-          {/* Left Text */}
-          <div className="absolute left-[12%] top-[30%]">
-            <h2 className="text-white text-8xl font-bold mb-2">100%</h2>
-            <p className="text-white text-base">Verified Providers</p>
-          </div>
-
-          {/* Right Text */}
-          <div className="absolute right-[12%] top-[30%] text-right">
-            <h2 className="text-white text-8xl font-bold mb-2">5min</h2>
-            <p className="text-white text-base">Avg. Booking Time</p>
-          </div>
-        </div>
-
-        {/* Phone - Centered and Overlapping */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-          <img
-            src="/phone-second.png"
-            alt="App interface"
-            className="h-[700px] w-auto drop-shadow-2xl"
-          />
-        </div>
+        </section>
       </div>
     </>
   );
