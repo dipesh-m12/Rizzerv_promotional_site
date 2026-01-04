@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { verceldeploymentainextstar } from "@/utils/route";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 function Hero() {
+  const router = useRouter();
   return (
     <section className="bg-black h-[87.5vh] overflow-hidden px-8 pt-4 flex flex-col">
       {/* Launching Soon Badge */}
@@ -28,6 +31,7 @@ function Hero() {
           style={{
             background: "linear-gradient(90deg, #CCF656 0%, #FFFFFF 110.66%)",
           }}
+          onClick={() => router.push(verceldeploymentainextstar)}
           className="px-8 py-3 rounded-full text-black text-base font-semibold hover:opacity-90 transition-opacity"
         >
           Get Early Access

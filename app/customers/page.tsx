@@ -1,7 +1,11 @@
+"use client";
 import Hero from "@/components/Customer/Hero";
+import { verceldeploymentainextstar } from "@/utils/route";
+import { useRouter } from "next/navigation";
 
 /* eslint-disable @next/next/no-img-element */
 export default function HeroSection() {
+  const router = useRouter();
   const features = [
     {
       icon: "/maps.png",
@@ -189,6 +193,7 @@ export default function HeroSection() {
                   </p>
 
                   <button
+                    onClick={() => router.push(verceldeploymentainextstar)}
                     style={{
                       background:
                         "linear-gradient(90deg, #CCF656 0%, #FFFFFF 110.66%)",

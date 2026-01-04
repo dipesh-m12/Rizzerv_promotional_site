@@ -5,8 +5,11 @@
 import Image from "next/image";
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { verceldeploymentainextstar } from "@/utils/route";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [waitingCount] = useState(1200);
 
   return (
@@ -47,7 +50,12 @@ export default function RegisterPage() {
 
             {/* CTA Button */}
             <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group">
-              <span className="relative z-10">Register Now</span>
+              <span
+                onClick={() => router.push(verceldeploymentainextstar)}
+                className="relative z-10"
+              >
+                Register Now
+              </span>
               <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
               <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 delay-150 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
             </button>
@@ -516,7 +524,12 @@ export default function RegisterPage() {
 
           {/* CTA Button */}
           <button className="relative overflow-hidden px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group mb-12">
-            <span className="relative z-10">Register Your Business</span>
+            <span
+              onClick={() => router.push(verceldeploymentainextstar)}
+              className="relative z-10"
+            >
+              Register Your Business
+            </span>
             <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
             <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 delay-150 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
           </button>

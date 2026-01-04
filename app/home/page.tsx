@@ -2,7 +2,9 @@
 // app/page.tsx
 "use client";
 
+import { verceldeploymentainextstar } from "@/utils/route";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   FaMapMarkerAlt,
@@ -21,7 +23,7 @@ export default function Home() {
     "customers"
   );
   const sectionRef = useRef<HTMLDivElement>(null);
-
+  const router = useRouter();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -101,7 +103,12 @@ export default function Home() {
 
             {/* CTA Button with Enhanced Shine Effect */}
             <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group">
-              <span className="relative z-10">Get early access</span>
+              <span
+                className="relative z-10"
+                onClick={() => router.push(verceldeploymentainextstar)}
+              >
+                Get early access
+              </span>
               {/* Shine effect layer 1 */}
               <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
               {/* Shine effect layer 2 - delayed */}
@@ -313,7 +320,10 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <button className="mt-8 px-8 py-3 rounded-[80px] bg-[#3C8F7C] text-white text-sm font-semibold hover:bg-[#3C8F7C]/90 transition-all duration-300">
+                  <button
+                    onClick={() => router.push(verceldeploymentainextstar)}
+                    className="mt-8 px-8 py-3 rounded-[80px] bg-[#3C8F7C] text-white text-sm font-semibold hover:bg-[#3C8F7C]/90 transition-all duration-300"
+                  >
                     Join the waiting list
                   </button>
                 </div>
@@ -403,8 +413,11 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <button className="mt-8 px-8 py-3 rounded-[80px] bg-[#3C8F7C] text-white text-sm font-semibold hover:bg-[#3C8F7C]/90 transition-all duration-300">
-                    Register as Partner
+                  <button
+                    onClick={() => router.push(verceldeploymentainextstar)}
+                    className="mt-8 px-8 py-3 rounded-[80px] bg-[#3C8F7C] text-white text-sm font-semibold hover:bg-[#3C8F7C]/90 transition-all duration-300"
+                  >
+                    Register as Provider
                   </button>
                 </div>
               </div>
@@ -504,7 +517,12 @@ export default function Home() {
 
           {/* CTA Button - MATCHED GRADIENT */}
           <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group mx-auto">
-            <span className="relative z-10">Join the waiting list</span>
+            <span
+              onClick={() => router.push(verceldeploymentainextstar)}
+              className="relative z-10"
+            >
+              Join the waiting list
+            </span>
             {/* Shine effect layer 1 */}
             <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
             {/* Shine effect layer 2 - delayed */}
@@ -616,7 +634,10 @@ export default function Home() {
               </p>
 
               {/* CTA Button */}
-              <button className="w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white text-black text-sm font-semibold hover:opacity-90 transition-opacity mb-8">
+              <button
+                onClick={() => router.push(verceldeploymentainextstar)}
+                className="w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white text-black text-sm font-semibold hover:opacity-90 transition-opacity mb-8"
+              >
                 Get early access
               </button>
 
@@ -658,7 +679,10 @@ export default function Home() {
               </p>
 
               {/* CTA Button */}
-              <button className="w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white text-black text-sm font-semibold hover:opacity-90 transition-opacity mb-8">
+              <button
+                onClick={() => router.push(verceldeploymentainextstar)}
+                className="w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white text-black text-sm font-semibold hover:opacity-90 transition-opacity mb-8"
+              >
                 Register as a provider
               </button>
 
