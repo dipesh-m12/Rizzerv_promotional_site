@@ -6,45 +6,47 @@ import React from "react";
 function Hero() {
   const router = useRouter();
   return (
-    <section className="bg-black h-[87.5vh] overflow-hidden px-8 pt-4 flex flex-col">
+    <section className="bg-black min-h-screen flex flex-col px-4 sm:px-8 lg:px-12 pt-3 lg:pt-3 pb-0">
       {/* Launching Soon Badge */}
-      <div className="flex items-center gap-2 border border-white/20 rounded-full px-4 py-2 mb-2 w-fit mx-auto">
+      <div className="flex items-center gap-2 border border-white rounded-full px-4 py-2 w-fit mx-auto">
         <img src="/rocket.png" alt="Rocket" className="w-4 h-4 invert" />
         <span className="text-white text-sm">Launching Soon</span>
       </div>
 
       {/* Main Heading */}
-      <h1 className="text-white text-6xl md:text-7xl text-center mb-4 font-agenda tracking-wide">
+      <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-center font-agenda tracking-wide leading-tight">
         You asked for this.
       </h1>
 
       {/* Subheading */}
-      <p className="text-white/80 text-lg md:text-xl text-center max-w-2xl mb-8 mx-auto">
+      <p className="text-white/80 text-base sm:text-md lg:text-md text-center max-w-2xl mb-3  mx-auto px-4">
         Your favourite salons, wellness centres, and
-        <br />
+        <br className="hidden sm:block" />
         everything in between are here!
       </p>
 
       {/* CTA Button */}
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-center mb-6 lg:mb-8">
         <button
           style={{
             background: "linear-gradient(90deg, #CCF656 0%, #FFFFFF 110.66%)",
           }}
           onClick={() => router.push(verceldeploymentainextstar)}
-          className="px-8 py-3 rounded-full text-black text-base font-semibold hover:opacity-90 transition-opacity"
+          className="px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-black text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity shadow-lg"
         >
           Get Early Access
         </button>
       </div>
 
-      {/* Phone Mockup */}
-      <div className="flex-1 flex justify-center items-end overflow-hidden">
-        <img
-          src="/phone-mockup.png"
-          alt="Phone showing app interface"
-          className="max-h-full w-auto object-contain object-bottom"
-        />
+      {/* Phone Mockup - Responsive Container */}
+      <div className="flex-1 flex justify-center items-end overflow-hidden relative min-h-0">
+        <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-full flex items-end justify-center">
+          <img
+            src="/phone-mockup.png"
+            alt="Phone showing app interface"
+            className="w-full h-auto max-h-[50vh] sm:max-h-[55vh] md:max-h-[60vh] lg:max-h-[65vh] xl:max-h-[70vh] object-contain object-bottom"
+          />
+        </div>
       </div>
     </section>
   );
