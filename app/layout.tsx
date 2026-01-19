@@ -15,76 +15,37 @@ export const metadata: Metadata = {
   description: "Rizzerv",
 };
 
+// Configured for the Condensed set as requested
 const agenda = localFont({
   src: [
     {
-      path: "../public/agenda/ufonts.com_agenda-light.ttf",
+      path: "../public/agenda/fonnts.com-Agenda_One_Condensed_Light.otf",
       weight: "300",
       style: "normal",
     },
     {
-      path: "../public/agenda/ufonts.com_agenda-lightitalic.ttf",
-      weight: "300",
-      style: "italic",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-lightcondensed.ttf",
-      weight: "300",
+      path: "../public/agenda/fonnts.com-Agenda_RegularCondensed.otf",
+      weight: "400",
       style: "normal",
     },
     {
-      path: "../public/agenda/ufonts.com_agenda-lightextracondensed.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-lightultracondensed.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-mediumcondensed.ttf",
+      path: "../public/agenda/fonnts.com-Agenda_MediumCondensed.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../public/agenda/ufonts.com_agenda-mediumextracondensed.ttf",
-      weight: "500",
+      path: "../public/agenda/fonnts.com-Agenda_SemiboldCondensed.otf",
+      weight: "600",
       style: "normal",
     },
     {
-      path: "../public/agenda/ufonts.com_agenda-mediumultracondensed.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-bold.ttf",
+      path: "../public/agenda/fonnts.com-Agenda_One_Condensed_Bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../public/agenda/ufonts.com_agenda-boldcondensed.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-boldextracondensed.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-boldultracondensed.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-black.ttf",
+      path: "../public/agenda/fonnts.com-Agenda_One_Condensed_Black.otf",
       weight: "900",
-      style: "normal",
-    },
-    {
-      path: "../public/agenda/ufonts.com_agenda-thinultracondensed.ttf",
-      weight: "100",
       style: "normal",
     },
   ],
