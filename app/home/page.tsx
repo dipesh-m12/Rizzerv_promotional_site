@@ -701,14 +701,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-3 px-6 relative z-10">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-black text-sm font-medium">
-            Copyright © RIZZerv 2025
-          </p>
-        </div>
-      </footer>
+      
     </div>
   );
 }

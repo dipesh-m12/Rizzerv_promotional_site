@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 
 const openSans = Open_Sans({
@@ -101,6 +102,7 @@ export default function RootLayout({
       <body className={`${openSans.variable} ${agenda.variable} antialiased`}>
         {children}
       </body>
+      <Footer />
     </html>
   );
 }
