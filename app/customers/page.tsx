@@ -37,18 +37,23 @@ export default function HeroSection() {
       {/* ===== WHITE/BLACK SPLIT SECTION WITH PHONE ===== */}
       <div className="relative">
         {/* White Top Section */}
-        <section className="relative bg-white overflow-hidden" style={{ height: "80vh" }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20 h-full flex flex-col pt-5">
+        <section
+          className="relative bg-white overflow-hidden"
+          style={{ height: "80vh" }}
+        >
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20 h-full flex flex-col pt-32">
             {/* Badge */}
-            <div className="flex justify-center">
+            <div className="flex justify-center my-4">
               <div className="flex items-center gap-2 rounded-full px-4 py-2 border border-[#ECE8DE] w-fit mx-auto">
                 <img src="/rocket.png" alt="Rocket" className="w-4 h-4" />
-                <span className="text-black text-sm font-normal">Launching Soon</span>
+                <span className="text-black text-sm font-normal">
+                  Launching Soon
+                </span>
               </div>
             </div>
 
             {/* Main Heading - MATCHED TO HOME */}
-            <h1 className="text-black text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 text-center font-agenda tracking-wide font-semibold">
+            <h1 className="text-black text-3xl sm:text-3xl md:text-4xl lg:text-5xl  mb-2 text-center font-agenda tracking-wide font-semibold">
               No calls. No waiting.
               <br />
               Just booked.
@@ -57,11 +62,12 @@ export default function HeroSection() {
             {/* Subheading - MATCHED TO HOME */}
             <p className="text-center text-gray-600 text-sm md:text-base lg:text-lg max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
               Your favourite salons and wellness experts; all in
-              <br className="hidden sm:block" /> one app. Book instantly, anytime, through RIZZerv.
+              <br className="hidden sm:block" /> one app. Book instantly,
+              anytime, through RIZZerv.
             </p>
 
             {/* Halo Icons Background - MOVED UP by changing from 'items-center' to 'items-start' + adding top margin */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none ">
+            <div className="absolute bottom-0 flex items-center justify-center pointer-events-none ">
               <img
                 src="/halo_icons.png"
                 alt="Services"
@@ -72,13 +78,12 @@ export default function HeroSection() {
                 src="/dryer.png"
                 alt="Hair Dryer"
                 className="absolute animate-pulse-slow bottom-16 md:bottom-20 lg:bottom-43 
-    right-[10%] sm:right-[15%] md:right-[18%] lg:right-[20%] xl:right-[26%]"
+    right-[10%] sm:right-[15%] md:right-[18%] lg:right-[20%] xl:right-[16%]"
                 style={{
                   width: "clamp(3rem, 5.5vw, 5rem)",
                   height: "clamp(3rem, 5vw, 5rem)",
                 }}
               />
-
             </div>
           </div>
         </section>
@@ -96,12 +101,15 @@ export default function HeroSection() {
         </div>
 
         {/* Black Bottom Section */}
-        <section className="relative bg-black text-white overflow-visible" style={{ height: "70vh" }}>
+        <section
+          className="relative bg-black text-white overflow-visible"
+          style={{ height: "50vh" }}
+        >
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20 h-full">
-            <div className="grid grid-cols-2 gap-6 md:gap-8 lg:gap-12 h-full items-center">
+            <div className="grid grid-cols-2 gap-6 md:gap-8 lg:gap-12 h-full ">
               {/* Left Stat */}
-              <div className="flex flex-col items-end justify-center pr-4 sm:pr-8 md:pr-16 lg:pr-32 xl:pr-48">
-                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 font-agenda">
+              <div className="flex flex-col items-end pt-48  pr-4 sm:pr-8 md:pr-16 lg:pr-32 xl:pr-48">
+                <div className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 font-agenda">
                   100%
                 </div>
                 <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/80 text-right">
@@ -110,8 +118,8 @@ export default function HeroSection() {
               </div>
 
               {/* Right Stat */}
-              <div className="flex flex-col items-start justify-center pl-4 sm:pl-8 md:pl-16 lg:pl-32 xl:pl-48">
-                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 font-agenda">
+              <div className="flex flex-col items-start pt-48 pl-4 sm:pl-8 md:pl-16 lg:pl-32 xl:pl-48">
+                <div className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 font-agenda">
                   5min
                 </div>
                 <div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-white/80">
@@ -122,7 +130,6 @@ export default function HeroSection() {
           </div>
         </section>
       </div>
-
 
       {/* ===== FEATURES SECTION ===== */}
       <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20 bg-black">
@@ -174,7 +181,10 @@ export default function HeroSection() {
           <div className="relative flex items-center justify-center lg:justify-start">
             {/* Phone Image - Desktop Only, Overlapping */}
             <div className="hidden lg:block absolute left-0 z-20 -ml-6 xl:-ml-4">
-              <div className="relative" style={{ width: "280px", maxWidth: "280px" }}>
+              <div
+                className="relative"
+                style={{ width: "280px", maxWidth: "280px" }}
+              >
                 <img
                   src="/cus_phone_end.png"
                   alt="Unlock your city's grooming map"
@@ -200,7 +210,7 @@ export default function HeroSection() {
                   </div>
 
                   {/* Heading - MATCHED TO HOME */}
-                  <h2 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-agenda tracking-wider">
+                  <h2 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight font-agenda tracking-wider">
                     Launching Soon in
                     <br />
                     Your City
@@ -231,13 +241,6 @@ export default function HeroSection() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <footer className="bg-white py-3 md:py-4 px-6 relative z-10">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-black text-sm md:text-base font-medium">
-            Copyright © RIZZerv 2025
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

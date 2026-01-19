@@ -5,12 +5,10 @@ import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { verceldeploymentainextstar } from "@/utils/route";
 
-
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
   // Determine active tab based on current pathname
   const getActiveTab = () => {
@@ -19,9 +17,7 @@ export default function Navbar() {
     return "Home";
   };
 
-
   const [activeTab, setActiveTab] = useState(getActiveTab());
-
 
   const tabs = [
     { label: "Home", path: "/home" },
@@ -29,25 +25,22 @@ export default function Navbar() {
     { label: "For Customers", path: "/customers" },
   ];
 
-
   const handleTabClick = (tab: any) => {
     setActiveTab(tab.label);
     router.push(tab.path);
     setIsMenuOpen(false);
   };
 
-
   return (
     <>
       <nav
         style={{ background: "#0A0A0A" }}
-        className="relative px-8 sm:px-6 py-1 flex items-center justify-between border-b border-white/20"
+        className="relative px-8 sm:px-6 py-1 flex items-center justify-between border-b-2 border-white/20 "
       >
         {/* Left - Logo */}
         <div className="flex items-center flex-shrink-0">
           <img src="logo.png" alt="Rizz Logo" className="h-12 sm:h-16" />
         </div>
-
 
         {/* Middle - Navigation Tabs (Hidden on mobile) */}
         <div className="hidden md:flex items-center gap-6 lg:gap-12 flex-1 justify-center">
@@ -55,10 +48,11 @@ export default function Navbar() {
             <button
               key={tab.label}
               onClick={() => handleTabClick(tab)}
-              className={`relative text-sm font-medium transition-colors ${activeTab === tab.label
-                ? "text-white"
-                : "text-white/70 hover:text-white"
-                }`}
+              className={`relative text-sm font-medium transition-colors ${
+                activeTab === tab.label
+                  ? "text-white"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
               {tab.label}
               {activeTab === tab.label && (
@@ -68,7 +62,6 @@ export default function Navbar() {
           ))}
         </div>
 
-
         {/* Right - Buttons (Desktop) */}
         <div className="hidden md:flex items-center gap-4">
           <button
@@ -77,7 +70,6 @@ export default function Navbar() {
           >
             Get Early Access
           </button>
-
 
           {/* Profile Icon with White Border */}
           <div className="relative">
@@ -90,7 +82,6 @@ export default function Navbar() {
           </div>
         </div>
 
-
         {/* Mobile - Only Hamburger Menu */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -98,41 +89,45 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""
-              }`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? "opacity-0" : ""
+            }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
           />
         </button>
       </nav>
 
-
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setIsMenuOpen(false)} />
+        <div
+          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+        />
       )}
-
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-black border-l border-gray-800 z-50 md:hidden transform transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-black border-l border-gray-800 z-50 md:hidden transform transition-transform duration-300 ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex flex-col gap-2 px-6 py-20">
           {tabs.map((tab) => (
             <button
               key={tab.label}
               onClick={() => handleTabClick(tab)}
-              className={`relative text-white text-base font-medium transition-colors py-3 px-4 text-left rounded-lg ${activeTab === tab.label
-                ? "bg-white/10"
-                : "hover:bg-white/5"
-                }`}
+              className={`relative text-white text-base font-medium transition-colors py-3 px-4 text-left rounded-lg ${
+                activeTab === tab.label ? "bg-white/10" : "hover:bg-white/5"
+              }`}
             >
               {tab.label}
               {activeTab === tab.label && (
@@ -150,7 +145,6 @@ export default function Navbar() {
           >
             Get Early Access
           </button>
-
 
           {/* Profile Icon with White Border - Mobile */}
           <div className="mt-6 flex justify-center">

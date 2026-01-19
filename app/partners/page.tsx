@@ -31,11 +31,11 @@ export default function PartnersPage() {
             </div>
 
             {/* Heading */}
-            <h1 className="text-white font-semibold" style={{ fontFamily: "var(--font-agenda)", fontWeight: 600 }}>
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+            <h1 className="text-white font-semibold font-agenda">
+              <span className="block text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
                 You&apos;ve come to
               </span>
-              <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mt-1">
+              <span className="block text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mt-1">
                 the right place.
               </span>
             </h1>
@@ -102,10 +102,10 @@ export default function PartnersPage() {
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-3 sm:mb-4">
+            <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4">
               Subscription Plans
             </h2>
-            <p className="text-white/80 text-xs sm:text-sm md:text-base max-w-3xl mx-auto leading-relaxed px-4">
+            <p className="text-white/80 text-sm sm:text-base  md:text-base max-w-3xl mx-auto leading-relaxed px-4">
               We take care of bookings, payments [if you want us to]
               <br className="hidden sm:block" />
               and more [need to add one more feature here].
@@ -113,7 +113,7 @@ export default function PartnersPage() {
           </div>
 
           {/* Plans Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-12 items-center">
             {/* Basic Plan */}
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
@@ -174,8 +174,8 @@ export default function PartnersPage() {
               </div>
             </div>
 
-            {/* Plus Plan - Featured */}
-            <div className="bg-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col border-2 border-white/20 relative transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl">
+            {/* Plus Plan - Featured (Made Bigger) */}
+            <div className="bg-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col border-2 border-white/20 relative transition-all duration-300 shadow-2xl lg:scale-110 lg:z-10">
               <div className="flex items-center gap-2 mb-3 sm:mb-4">
                 <Image
                   src="/lightning.png"
@@ -367,7 +367,7 @@ export default function PartnersPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-10 sm:mb-12">
             {/* Left - Heading */}
             <div>
-              <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+              <h2 className="text-white sm:text-left text-center text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold leading-tight">
                 Built to Help Your
                 <br />
                 Business Grow
@@ -375,10 +375,10 @@ export default function PartnersPage() {
             </div>
 
             {/* Right - Description */}
-            <div>
-              <p className="text-white/70 text-xs sm:text-sm md:text-base leading-relaxed">
-                From visibility to automated bookings, Rizzer gives you the
-                tools to attract more customers and run smarter.
+            <div className=" ml-auto">
+              <p className="text-white/70 text-sm sm:text-base  md:text-base leading-relaxed">
+                From visibility to automated bookings, Rizzer gives <br /> you
+                the tools to attract more customers and run smarter.
               </p>
             </div>
           </div>
@@ -480,14 +480,15 @@ export default function PartnersPage() {
       >
         <div className="max-w-4xl mx-auto text-center">
           {/* Heading */}
-          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 sm:mb-6">
+          <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-4 sm:mb-6">
             Ready to Grow with Rizzerv?
           </h2>
 
           {/* Description */}
-          <p className="text-white/70 text-xs sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
-            Join Rizzerv and get discovered by new customers, automate bookings,
-            and run your salon smarter from day one.
+          <p className="text-[#D9D9D9] text-sm sm:text-base  md:text-base leading-relaxed mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+            Join Rizzerv and get discovered by new customers, automate{" "}
+            <br className="sm:block hidden" />
+            bookings, and run your salon smarter from day one.
           </p>
 
           {/* CTA Button */}

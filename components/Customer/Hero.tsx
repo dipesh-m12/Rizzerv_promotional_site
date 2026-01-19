@@ -8,18 +8,18 @@ function Hero() {
   return (
     <section className="bg-black min-h-screen flex flex-col px-4 sm:px-8 lg:px-12 pt-3 lg:pt-3 pb-0">
       {/* Launching Soon Badge */}
-      <div className="flex items-center gap-2 border border-white rounded-full px-4 py-2 w-fit mx-auto">
+      <div className="flex items-center gap-2 border border-white rounded-full px-4 py-2 w-fit mx-auto my-4 mt-6">
         <img src="/rocket.png" alt="Rocket" className="w-4 h-4 invert" />
         <span className="text-white text-sm">Launching Soon</span>
       </div>
 
       {/* Main Heading */}
-      <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-center font-agenda tracking-wide leading-tight">
+      <h1 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-agenda font-semibold tracking-wide leading-tight">
         You asked for this.
       </h1>
 
       {/* Subheading */}
-      <p className="text-white/80 text-base sm:text-md lg:text-md text-center max-w-2xl mb-3  mx-auto px-4">
+      <p className="text-white/80 text-sm sm:text-base text-center max-w-2xl mb-6  mx-auto px-4">
         Your favourite salons, wellness centres, and
         <br className="hidden sm:block" />
         everything in between are here!
