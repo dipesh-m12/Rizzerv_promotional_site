@@ -152,7 +152,7 @@ export default function Footer() {
                             src="/footerphone.png"
                             alt="RIZZerv Logo"
                             className="w-full h-auto object-cover"
-                            style={{ minHeight: '190px', maxHeight: '200px' }}
+                            style={{ minHeight: '105px', maxHeight: '200px' }}
                         />
                     </div>
                 </div>
