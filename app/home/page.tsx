@@ -3,15 +3,6 @@
 import { verceldeploymentainextstar } from "@/utils/route";
 import router from "next/router";
 import React, { useEffect, useRef, useState } from "react";
-import {
-  FaMapMarkerAlt,
-  FaCalendarAlt,
-  FaShieldAlt,
-  FaTag,
-  FaUsers,
-  FaSlidersH,
-  FaCheckCircle,
-} from "react-icons/fa";
 import Image from "next/image";
 
 import { HiUserGroup } from "react-icons/hi2";
@@ -96,7 +87,7 @@ export default function Home() {
         <div className="max-w-7xl w-full mx-auto">
           {/* Heading */}
           <div className="text-center mb-8 md:mb-12">
-            <h1 className="text-white text-6xl  font-bold mb-4 md:mb-4 semibold-condensed font-agenda">
+            <h1 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-4 font-semibold font-agenda">
               The best SALONS & STYLISTS aren&apos;t
               <br />
               advertising, they&apos;re getting BOOKED!
@@ -119,7 +110,7 @@ export default function Home() {
         className="py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-12 bg-[rgba(13,13,13,1)]"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 semibold-condensed font-agenda">
+          <h2 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-semibold text-center mb-8 md:mb-12 semibold-condensed font-agenda">
             Tired of &quot;Can you come back in an hour?&quot;
             <br />
             from your salon.
@@ -140,7 +131,7 @@ export default function Home() {
                 {counts.stat1}
                 <span className="text-2xl md:text-3xl">%</span>
               </h3>
-              <p className="text-white/80 text-xs md:text-sm text-center max-w-[180px]">
+              <p className="text-white/80 text-sm md:text-sm text-center max-w-[180px]">
                 Customers prefer knowing prices and available slots in advance
               </p>
             </div>
@@ -158,7 +149,7 @@ export default function Home() {
                 {counts.stat2}
                 <span className="text-2xl md:text-3xl">x</span>
               </h3>
-              <p className="text-black text-xs md:text-sm text-center max-w-[180px]">
+              <p className="text-black text-sm md:text-sm text-center max-w-[180px]">
                 Reduction in NO-Shows & Cancellations
               </p>
             </div>
@@ -176,7 +167,7 @@ export default function Home() {
                 {counts.stat3}
                 <span className="text-2xl md:text-3xl">%</span>
               </h3>
-              <p className="text-white/80 text-xs md:text-sm text-center max-w-[180px]">
+              <p className="text-white/80 text-sm md:text-sm text-center max-w-[180px]">
                 Customers prefer Online Booking
               </p>
             </div>
@@ -187,11 +178,12 @@ export default function Home() {
 
 
       {/* Why RIZZerv Section */}
+      {/* Why RIZZerv Section */}
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-black">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-agenda">
+            <h2 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-semibold mb-4 font-agenda">
               One Platform to DISCOVER, BOOK & REVIEW
             </h2>
             <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto">
@@ -199,9 +191,9 @@ export default function Home() {
             </p>
           </div>
           {/* Cards Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               <div className="flex justify-center">
                 <img src="/card01.png" alt="Card 1" className="rounded-2xl h-[280px] w-auto" />
               </div>
@@ -211,7 +203,7 @@ export default function Home() {
             </div>
 
             {/* Center Card - Coded instead of image */}
-            <div className="relative rounded-3xl overflow-hidden border border-white/30  flex flex-col items-center justify-between py-6 md:py-8 h-[520px] md:h-[580px]">
+            <div className="relative rounded-3xl overflow-hidden border border-white/30  flex flex-col items-center justify-between py-6 md:py-8 h-[520px] md:h-[568px]">
 
               {/* Green glow gradient at bottom */}
               <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-[#5a6f1f]/60 to-transparent" />
@@ -237,7 +229,7 @@ export default function Home() {
             </div>
 
 
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
               <div className="flex justify-center">
                 <img src="/card03.png" alt="Card 3" className="rounded-2xl h-[280px] w-auto" />
               </div>
@@ -251,7 +243,6 @@ export default function Home() {
 
         </div>
       </section>
-
       {/* For Business Owners Section */}
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-black flex items-center justify-center">
         <div className="max-w-6xl mx-auto w-full">
@@ -324,7 +315,7 @@ export default function Home() {
                 <div className="flex-1">
                   <p className="text-[#CCF656] text-md font-semibold mb-4">For Business Owners</p>
 
-                  <h2 className="text-white text-5xl font-bold mb-4 font-semibold font-agenda">
+                  <h2 className="text-white text-5xl  mb-4 font-semibold font-agenda">
                     List. Manage. Earn.
                   </h2>
 
@@ -417,10 +408,10 @@ export default function Home() {
 
           {/* Heading - MATCHED TO HERO */}
           <h2 className="text-white font-agenda mb-6 ">
-            <span className="block text-4xl md:text-5xl lg:text-6xl font-semibold tracking-wider">
+            <span className=" text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-agenda font-semibold tracking-wider">
               Tell us your city & get notified
             </span>
-            <span className="block text-4xl md:text-5xl lg:text-5xl font-semibold tracking-wider mt-1">
+            <span className=" text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-agenda font-semibold tracking-wider mt-1">
               the moment we open doors
             </span>
           </h2>
