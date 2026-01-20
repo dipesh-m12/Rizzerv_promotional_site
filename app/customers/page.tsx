@@ -41,7 +41,7 @@ export default function HeroSection() {
           className="relative bg-white overflow-hidden"
           style={{ height: "80vh" }}
         >
-          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20 h-full flex flex-col pt-32">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20 h-full flex flex-col pt-24 sm:pt-32">
             {/* Badge */}
             <div className="flex justify-center my-4">
               <div className="flex items-center gap-2 rounded-full px-4 py-2 border border-[#ECE8DE] w-fit mx-auto">
@@ -71,7 +71,7 @@ export default function HeroSection() {
               <img
                 src="/halo_icons.png"
                 alt="Services"
-                className="w-full max-w-3xl md:max-w-4xl lg:max-w-5xl h-auto opacity-90"
+                className="w-full scale-125 max-w-3xl md:max-w-4xl lg:max-w-5xl h-auto opacity-90"
               />
               {/* Hair Dryer - NOW USING PERCENTAGE */}
               <img
@@ -106,9 +106,9 @@ export default function HeroSection() {
           style={{ height: "50vh" }}
         >
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 xl:px-20 h-full">
-            <div className="grid grid-cols-2 gap-6 md:gap-8 lg:gap-12 h-full ">
+            <div className="flex flex-col-reverse sm:grid sm:grid-cols-2 gap-6 md:gap-8 lg:gap-12 h-full">
               {/* Left Stat */}
-              <div className="flex flex-col items-end pt-48  pr-4 sm:pr-8 md:pr-16 lg:pr-32 xl:pr-48">
+              <div className="flex flex-col items-center sm:items-end sm:pt-48   sm:pr-8 md:pr-16 lg:pr-32 xl:pr-48">
                 <div className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 font-agenda">
                   100%
                 </div>
@@ -118,7 +118,7 @@ export default function HeroSection() {
               </div>
 
               {/* Right Stat */}
-              <div className="flex flex-col items-start pt-48 pl-4 sm:pl-8 md:pl-16 lg:pl-32 xl:pl-48">
+              <div className="flex flex-col items-center sm:items-start sm:pt-48 sm:pl-8 md:pl-16 lg:pl-32 xl:pl-48">
                 <div className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 font-agenda">
                   5min
                 </div>
@@ -138,7 +138,7 @@ export default function HeroSection() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="bg-[#0B0B0B] rounded-3xl border border-[#1A1A1A] p-6 md:p-8 flex flex-col h-[500px] md:h-[550px] hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="bg-[#0B0B0B] rounded-3xl border border-[#444444] p-6 md:p-8 flex flex-col h-[500px] md:h-[550px] hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 {/* Icon */}
                 <div className="mb-6 flex-shrink-0">
@@ -196,18 +196,11 @@ export default function HeroSection() {
             {/* Banner Background */}
             <div className="w-full lg:ml-40 xl:ml-48">
               <div
-                className="rounded-3xl py-12 md:py-16 lg:py-20 px-8 md:px-12 lg:pl-28 xl:pl-36 lg:pr-12 xl:pr-16"
+                className="rounded-3xl py-12 md:py-16 lg:py-20 px-4 sm:px-8 md:px-12 lg:pl-28 xl:pl-36 lg:pr-12 xl:pr-16"
                 style={{ background: "rgba(18, 18, 18, 1)" }}
               >
                 <div className="flex flex-col space-y-6 lg:space-y-8 max-w-2xl">
                   {/* Mobile Phone Image */}
-                  <div className="lg:hidden w-full flex justify-center mb-6">
-                    <img
-                      src="/cus_phone_end.png"
-                      alt="Unlock your city's grooming map"
-                      className="w-56 sm:w-64 h-auto object-contain"
-                    />
-                  </div>
 
                   {/* Heading - MATCHED TO HOME */}
                   <h2 className="text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold leading-tight font-agenda tracking-wider">
@@ -233,6 +226,14 @@ export default function HeroSection() {
                     <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
                     <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 delay-150 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
                   </button>
+
+                  <div className="sm:hidden w-full flex justify-center mb-6">
+                    <img
+                      src="/cus_phone_end.png"
+                      alt="Unlock your city's grooming map"
+                      className="w-56 sm:w-64 h-auto object-contain"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
