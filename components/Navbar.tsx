@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { verceldeploymentainextstar } from "@/utils/route";
 
@@ -17,7 +17,7 @@ export default function Navbar() {
     return "Home";
   };
 
-  const [activeTab, setActiveTab] = useState(getActiveTab());
+  const activeTab = getActiveTab();
 
   const tabs = [
     { label: "Home", path: "/home" },
@@ -26,7 +26,6 @@ export default function Navbar() {
   ];
 
   const handleTabClick = (tab: any) => {
-    setActiveTab(tab.label);
     router.push(tab.path);
     setIsMenuOpen(false);
   };
@@ -48,11 +47,10 @@ export default function Navbar() {
             <button
               key={tab.label}
               onClick={() => handleTabClick(tab)}
-              className={`relative text-sm font-medium transition-colors ${
-                activeTab === tab.label
+              className={`relative text-sm font-medium transition-colors ${activeTab === tab.label
                   ? "text-white"
                   : "text-white/70 hover:text-white"
-              }`}
+                }`}
             >
               {tab.label}
               {activeTab === tab.label && (
@@ -89,19 +87,16 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMenuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMenuOpen ? "opacity-0" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "opacity-0" : ""
+              }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-              isMenuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
           />
         </button>
       </nav>
@@ -116,18 +111,26 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-black border-l border-gray-800 z-50 md:hidden transform transition-transform duration-300 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-black border-l border-gray-800 z-50 md:hidden transform transition-transform duration-300 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex flex-col gap-2 px-6 py-20">
+          {/* Profile Icon - Top Right in Mobile Menu */}
+          <div className="absolute top-6 right-6">
+            <button
+              style={{ background: "#F230AA" }}
+              className="w-12 h-12 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity border-2 border-white"
+            >
+              <img src="person.png" alt="User" className="size-4" />
+            </button>
+          </div>
+
           {tabs.map((tab) => (
             <button
               key={tab.label}
               onClick={() => handleTabClick(tab)}
-              className={`relative text-white text-base font-medium transition-colors py-3 px-4 text-left rounded-lg ${
-                activeTab === tab.label ? "bg-white/10" : "hover:bg-white/5"
-              }`}
+              className={`relative text-white text-base font-medium transition-colors py-3 px-4 text-left rounded-lg ${activeTab === tab.label ? "bg-white/10" : "hover:bg-white/5"
+                }`}
             >
               {tab.label}
               {activeTab === tab.label && (
@@ -145,18 +148,6 @@ export default function Navbar() {
           >
             Get Early Access
           </button>
-
-          {/* Profile Icon with White Border - Mobile */}
-          <div className="mt-6 flex justify-center">
-            <div className="relative">
-              <button
-                style={{ background: "#F230AA" }}
-                className="w-12 h-12 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity border-2 border-white"
-              >
-                <img src="person.png" alt="User" className="size-4" />
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </>
