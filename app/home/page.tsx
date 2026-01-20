@@ -1,11 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
-// app/page.tsx
 "use client";
 
 import { verceldeploymentainextstar } from "@/utils/route";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import router from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 import {
   FaMapMarkerAlt,
   FaCalendarAlt,
@@ -15,15 +12,28 @@ import {
   FaSlidersH,
   FaCheckCircle,
 } from "react-icons/fa";
+import Image from "next/image";
+
+import { HiUserGroup } from "react-icons/hi2";
+import { MdDashboard } from "react-icons/md";
+import { FiCalendar } from "react-icons/fi";
+
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [counts, setCounts] = useState({ stat1: 0, stat2: 0, stat3: 0 });
-  const [activeTab, setActiveTab] = useState<"customers" | "providers">(
-    "customers"
-  );
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+  const [activeTab, setActiveTab] = useState("customers");
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const sectionRef = useRef(null);
+
+  // Profile cards data
+  const profileCards = [
+    { image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop", name: "Priya's Salon" },
+    { image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop", name: "Elite Barbers" },
+    { image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop", name: "Glamour Studio" },
+    { image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=600&fit=crop", name: "Urban Cuts" },
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -70,399 +80,314 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [isVisible]);
 
+  // Card rotation effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCardIndex((prev) => (prev + 1) % profileCards.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div style={{ background: "#000000" }}>
-      {/* Hero Section */}
-      <section className="h-[87.5vh] flex items-center justify-center px-6 md:px-12 lg:px-16 xl:px-20 overflow-hidden bg-black">
-        <div className="max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
-          <div className="flex flex-col space-y-6">
-            {/* Launching Soon Badge */}
-            <button className="flex items-center gap-2.5 w-fit px-4 py-2.5 rounded-[40px] border border-[#ECE8DE] bg-transparent shadow-[inset_2px_2px_40px_0px_rgba(243,239,230,0.1)] hover:bg-white/5 transition-colors">
-              <img
-                src="/rocket.png"
-                alt="Rocket"
-                className="w-5 h-5 brightness-0 invert"
-              />
-              <span className="text-white text-sm font-normal">
-                Launching Soon
-              </span>
-            </button>
-
-            {/* Heading */}
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl tracking-wider font-semibold font-agenda">
-              <span className="block">No calls. No waiting.</span>
-              <span className="block mt-1">Just booked.</span>
+    <div className="bg-black">
+      {/* Hero Section with Tinder Animation */}
+      <section className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-12 py-12 bg-black relative overflow-hidden">
+        <div className="max-w-7xl w-full mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-8 md:mb-12">
+            <h1 className="text-white text-6xl  font-bold mb-4 md:mb-4 semibold-condensed font-agenda">
+              The best SALONS & STYLISTS aren&apos;t
+              <br />
+              advertising, they&apos;re getting BOOKED!
             </h1>
-
-            {/* Subheading */}
-            <p className="text-white/90 text-sm md:text-base leading-relaxed font-normal max-w-lg">
-              Your favourite salons and wellness experts; all in <br />
-              one app. Book instantly, anytime, through RIZZerv.
+            <p className="text-white/80 text-base md:text-lg mb-6 md:mb-8">
+              Book an appointment anytime, anywhere
             </p>
-
-            {/* CTA Button with Enhanced Shine Effect */}
-            <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group">
-              <span
-                className="relative z-10"
-                onClick={() => router.push(verceldeploymentainextstar)}
-              >
-                Get early access
-              </span>
-              {/* Shine effect layer 1 */}
-              <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
-              {/* Shine effect layer 2 - delayed */}
-              <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 delay-150 ease-out bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+            <button className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-[#CCF656] to-[#A8D943] text-black text-sm md:text-base font-semibold hover:opacity-90 transition-opacity">
+              Get early access
             </button>
           </div>
 
-          {/* Right Content - Hero Image with Animation */}
-          <div className="relative flex justify-center lg:justify-end items-center h-full max-h-[87.5vh]">
-            <div className="relative w-full  h-full flex items-center justify-center">
-              <img
-                src="/Hero.png"
-                alt="RIZZerv App Interface"
-                className="w-full h-auto max-h-full object-contain"
-              />
-            </div>
-          </div>
+
         </div>
       </section>
 
       {/* Stats Section */}
       <section
         ref={sectionRef}
-        className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20"
+        className="py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-12 bg-[rgba(13,13,13,1)]"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Stat 1 - 76% */}
-            <div className="bg-white rounded-[100px] px-10 py-8 hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-[0_10px_40px_rgba(255,255,255,0.1)]">
-              <h3 className="text-5xl md:text-5xl font-bold text-black mb-2">
-                {counts.stat1}%
+          <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12 semibold-condensed font-agenda">
+            Tired of &quot;Can you come back in an hour?&quot;
+            <br />
+            from your salon.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
+
+            {/* Stat 1 */}
+            <div className="bg-[#0D0D0D] 
+        w-[220px] h-[220px] 
+        sm:w-[240px] sm:h-[240px] 
+        md:w-[260px] md:h-[260px] 
+        lg:w-[280px] lg:h-[280px]
+        rounded-full flex flex-col items-center justify-center 
+        p-5 border border-white hover:border-gray-700 transition-all duration-300">
+
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
+                {counts.stat1}
+                <span className="text-2xl md:text-3xl">%</span>
               </h3>
-              <p className="text-black text-sm leading-snug">
+              <p className="text-white/80 text-xs md:text-sm text-center max-w-[180px]">
                 Customers prefer knowing prices and available slots in advance
               </p>
             </div>
 
-            {/* Stat 2 - 3x */}
-            <div className="bg-[#CCF656] rounded-[100px] px-10 py-8 hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-[0_10px_40px_rgba(204,246,86,0.4)]">
-              <h3 className="text-5xl md:text-5xl font-bold text-black mb-2">
-                {counts.stat2}x
+            {/* Stat 2 */}
+            <div className="bg-[#CCF656] 
+        w-[220px] h-[220px] 
+        sm:w-[240px] sm:h-[240px] 
+        md:w-[260px] md:h-[260px] 
+        lg:w-[280px] lg:h-[280px]
+        rounded-full flex flex-col items-center justify-center 
+        p-5 hover:scale-105 transition-all duration-300">
+
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-3">
+                {counts.stat2}
+                <span className="text-2xl md:text-3xl">x</span>
               </h3>
-              <p className="text-black text-sm leading-snug">
+              <p className="text-black text-xs md:text-sm text-center max-w-[180px]">
                 Reduction in NO-Shows & Cancellations
               </p>
             </div>
 
-            {/* Stat 3 - 70% */}
-            <div className="bg-white rounded-[100px] px-10 py-8 hover:scale-105 transition-all duration-300 cursor-pointer hover:shadow-[0_10px_40px_rgba(255,255,255,0.1)]">
-              <h3 className="text-5xl md:text-5xl font-bold text-black mb-2">
-                {counts.stat3}%
+            {/* Stat 3 */}
+            <div className="bg-[#0D0D0D] 
+        w-[220px] h-[220px] 
+        sm:w-[240px] sm:h-[240px] 
+        md:w-[260px] md:h-[260px] 
+        lg:w-[280px] lg:h-[280px]
+        rounded-full flex flex-col items-center justify-center 
+        p-5 border border-white hover:border-gray-700 transition-all duration-300">
+
+              <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
+                {counts.stat3}
+                <span className="text-2xl md:text-3xl">%</span>
               </h3>
-              <p className="text-black text-sm leading-snug">
+              <p className="text-white/80 text-xs md:text-sm text-center max-w-[180px]">
                 Customers prefer Online Booking
               </p>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Two Experiences Section */}
-      <section className="py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20 bg-black">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-white mb-4 text-4xl md:text-5xl font-agenda lg:text-5xl font-semibold tracking-wider">
-              One platform. Two experiences.
+
+      {/* Why RIZZerv Section */}
+      <section className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-black">
+        <div className="max-w-7xl mx-auto">
+          {/* Heading */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 font-agenda">
+              One Platform to DISCOVER, BOOK & REVIEW
             </h2>
-            <p className="text-white/80 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-              Whether you&apos;re booking a service or providing them, <br />
-              RIZZerv adapts to how you work, with experiences designed
-              <br />
-              just for you.
+            <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto">
+              Whether you&apos;re looking for Balayage in Bandra, a MUA in Besant Nagar or Botox in Indranagar, we will match you to the best!
             </p>
           </div>
+          {/* Cards Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
 
-          {/* Toggle Buttons */}
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex rounded-[80px] p-1 bg-[#121212] border border-[#3E3D51]">
-              <button
-                onClick={() => setActiveTab("customers")}
-                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${
-                  activeTab === "customers"
-                    ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
-                    : "bg-transparent text-white hover:text-white/80"
-                }`}
-              >
-                For Customers
-              </button>
-              <button
-                onClick={() => setActiveTab("providers")}
-                className={`px-8 py-3 rounded-[80px] text-sm font-semibold transition-all duration-300 ${
-                  activeTab === "providers"
-                    ? "bg-gradient-to-r from-[#CCF656] to-white text-black"
-                    : "bg-transparent text-white hover:text-white/80"
-                }`}
-              >
-                For Providers
-              </button>
+            <div className="flex flex-col gap-6">
+              <div className="flex justify-center">
+                <img src="/card01.png" alt="Card 1" className="rounded-2xl h-[280px] w-auto" />
+              </div>
+              <div className="flex justify-center">
+                <img src="/card02.png" alt="Card 2" className="rounded-2xl h-[280px] w-auto" />
+              </div>
             </div>
+
+            {/* Center Card - Coded instead of image */}
+            <div className="relative rounded-3xl overflow-hidden border border-white/30  flex flex-col items-center justify-between py-6 md:py-8 h-[520px] md:h-[580px]">
+
+              {/* Green glow gradient at bottom */}
+              <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-[#5a6f1f]/60 to-transparent" />
+
+              {/* Text content */}
+              <div className="relative z-10 text-center mt-2">
+                <h3 className="text-white text-4xl md:text-4xl font-semibold mb-3 pt-6">
+                  Why RIZZerv?
+                </h3>
+                <p className="text-white/70 text-md md:text-base max-w-xs mx-auto pt-4">
+                  Every salon and professional is verified and reviewed, so you book with confidence, every time.
+                </p>
+              </div>
+
+              {/* Phone mockup image */}
+              <div className="relative z-10 mt-6 pt-[60px] flex justify-center">
+                <img
+                  src="/cardphoneimg.png"   // ← change to your phone image
+                  alt="App Preview"
+                  className="w-[220px] md:w-[260px] object-contain"
+                />
+              </div>
+            </div>
+
+
+            <div className="flex flex-col gap-6">
+              <div className="flex justify-center">
+                <img src="/card03.png" alt="Card 3" className="rounded-2xl h-[280px] w-auto" />
+              </div>
+              <div className="flex justify-center">
+                <img src="/card04.png" alt="Card 4" className="rounded-2xl h-[280px] w-auto" />
+              </div>
+            </div>
+
           </div>
 
-          {/* Content Area - Fixed Height Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left Side - Features with Fixed Height */}
-            <div className="relative min-h-[600px]">
-              {/* Customers Content */}
-              <div
-                className={`absolute inset-0 transition-opacity duration-300 ${
-                  activeTab === "customers"
-                    ? "opacity-100 pointer-events-auto"
-                    : "opacity-0 pointer-events-none"
-                }`}
-              >
-                <div className="space-y-8">
-                  <h3 className="text-white text-3xl md:text-4xl font-semibold  mb-8">
-                    Why RIZZerv?
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8">
-                    Every salon and professional is verified and reviewed, so
-                    you book with confidence, every time.
-                  </p>
 
-                  <div className="space-y-6">
-                    {/* Feature 1 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaMapMarkerAlt size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          Location-based Discovery
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          Find top-rated salons, spas & clinics near you!
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Feature 2 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaCalendarAlt size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          Instant Booking - 24/7
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          See real-time availability and book anytime.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Feature 3 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaShieldAlt size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          Verified Reviews
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          Real reviews from real customers. No filters. No fake
-                          ratings.
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Feature 4 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaTag size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          Transparent Service Menu & Pricing
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          Know what is on offer & plan your budget before you
-                          reach the salon!
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => router.push(verceldeploymentainextstar)}
-                    className="mt-8 px-8 py-3 rounded-[80px] bg-[#3C8F7C] text-white text-sm font-semibold hover:bg-[#3C8F7C]/90 transition-all duration-300"
-                  >
-                    Join the waiting list
-                  </button>
-                </div>
-              </div>
-
-              {/* Providers Content */}
-              <div
-                className={`absolute inset-0 transition-opacity duration-300 ${
-                  activeTab === "providers"
-                    ? "opacity-100 pointer-events-auto"
-                    : "opacity-0 pointer-events-none"
-                }`}
-              >
-                <div className="space-y-8">
-                  <h3 className="text-white text-3xl md:text-4xl font-semibold mb-8">
-                    List. Manage. Earn.
-                  </h3>
-                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8">
-                    Register & Unlock{" "}
-                    <span className="text-[#CCF656]">free trial</span> of
-                    RIZZerv Dashboard
-                  </p>
-
-                  <div className="space-y-6">
-                    {/* Feature 1 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaUsers size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          Reach More Customers
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          Get discovered by new customers daily!
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Feature 2 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaSlidersH size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          Ease Management
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          Dashboard provides full control to manage your
-                          appointments, staff and everything else
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Feature 3 */}
-                    <div className="flex gap-4">
-                      <div
-                        className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background:
-                            "linear-gradient(235.53deg, rgba(11, 11, 11, 0.94) 19.82%, rgba(204, 246, 86, 0.94) 323.36%)",
-                        }}
-                      >
-                        <FaCheckCircle size={20} color="#FFFFFF" />
-                      </div>
-                      <div>
-                        <h4 className="text-white text-lg font-semibold mb-1">
-                          No Friction
-                        </h4>
-                        <p className="text-white/70 text-sm">
-                          Reduce Last-minute Cancellations & No-Shows!
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => router.push(verceldeploymentainextstar)}
-                    className="mt-8 px-8 py-3 rounded-[80px] bg-[#3C8F7C] text-white text-sm font-semibold hover:bg-[#3C8F7C]/90 transition-all duration-300"
-                  >
-                    Register as Provider
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Image with Fixed Height Container */}
-            <div className="relative min-h-[600px] flex items-center justify-center lg:justify-end">
-              {/* Customer Image */}
-              <div
-                className={`absolute transition-opacity duration-300 ${
-                  activeTab === "customers" ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <div className="relative w-full max-w-[450px]">
-                  <img
-                    src="/customer.png"
-                    alt="Customer App"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-
-              {/* Provider Image */}
-              <div
-                className={`absolute transition-opacity duration-300 ${
-                  activeTab === "providers" ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <div className="relative w-full max-w-[450px]">
-                  <img
-                    src="/provider.png"
-                    alt="Provider Dashboard"
-                    className="w-full h-auto"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+
+      {/* For Business Owners Section */}
+      <section className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-black flex items-center justify-center">
+        <div className="max-w-6xl mx-auto w-full">
+
+          {/* ---------------- MOBILE LAYOUT ---------------- */}
+          <div className="lg:hidden w-[90%] max-w-md mx-auto">
+            <div className="bg-gradient-to-b from-[#48937E] to-[#044130] rounded-3xl p-6 md:p-8">
+
+              {/* Heading */}
+              <div className="mb-6">
+                <p className="text-[#CCF656] text-md font-semibold mb-3">For Business Owners</p>
+
+                <h2 className="text-white text-3xl md:text-4xl font-semibold font-agenda  mb-4">
+                  List. Manage. Earn.
+                </h2>
+
+                <p className="text-white/90 text-sm md:text-base font-semibold mb-4">
+                  Register & Unlock <span className="text-[#CCF656]">FREE TRIAL</span> of RIZZerv Dashboard
+                </p>
+
+                <button className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold text-sm mb-6 hover:opacity-90 transition">
+                  Start Free Trial
+                </button>
+              </div>
+
+              {/* Features */}
+              <div className="space-y-5 mb-8">
+                {[
+                  {
+                    icon: <HiUserGroup className="text-white text-lg" />,
+                    title: "Reach More Customers",
+                    desc: "Get discovered by new customers daily!"
+                  },
+                  {
+                    icon: <MdDashboard className="text-white text-lg" />,
+                    title: "Ease Management",
+                    desc: "Dashboard provides full control to manage your appointments, staff and everything else"
+                  },
+                  {
+                    icon: <FiCalendar className="text-white text-lg" />,
+                    title: "No Friction",
+                    desc: "Reduce Last-minute Cancellations & No-Shows!"
+                  }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-white font-semibold text-base mb-1">{item.title}</h3>
+                      <p className="text-white/80 text-xs">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Image */}
+              <div className="flex justify-center rounded-2xl overflow-hidden">
+                <img src="/laptop-phone.png" alt="Dashboard" className="w-full h-auto" />
+              </div>
+            </div>
+          </div>
+
+          {/* ---------------- DESKTOP LAYOUT ---------------- */}
+          <div className="hidden lg:block">
+            <div className="bg-gradient-to-b from-[#48937E] to-[#044130] rounded-3xl py-12 pl-12">
+              <div className="flex items-center justify-between gap-12">
+
+                {/* Left Content */}
+                <div className="flex-1">
+                  <p className="text-[#CCF656] text-md font-semibold mb-4">For Business Owners</p>
+
+                  <h2 className="text-white text-5xl font-bold mb-4 font-semibold font-agenda">
+                    List. Manage. Earn.
+                  </h2>
+
+                  <p className="text-white/90 text-lg font-semibold mb-6">
+                    Register & Unlock <span className="text-[#CCF656]">FREE TRIAL</span> of <br /> RIZZerv Dashboard
+                  </p>
+
+                  <button className="px-8 py-3 rounded-full bg-white text-gray-900 font-semibold mb-12 hover:opacity-90 transition">
+                    Start Free Trial
+                  </button>
+
+                  {/* Features */}
+                  <div className="space-y-6">
+                    {[
+                      {
+                        icon: <HiUserGroup className="text-white text-xl" />,
+                        title: "Reach More Customers",
+                        desc: "Get discovered by new customers daily!"
+                      },
+                      {
+                        icon: <MdDashboard className="text-white text-xl" />,
+                        title: "Ease Management",
+                        desc: "Dashboard provides full control to manage your appointments, staff and everything else"
+                      },
+                      {
+                        icon: <FiCalendar className="text-white text-xl" />,
+                        title: "No Friction",
+                        desc: "Reduce Last-minute Cancellations & No-Shows!"
+                      }
+                    ].map((item, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+                          {item.icon}
+                        </div>
+                        <div>
+                          <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
+                          <p className="text-white/80 text-sm">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right Image */}
+                <div className="flex justify-center">
+                  <div className="w-full max-w-lg">
+                    <img src="/laptop.png" alt="Dashboard" className="w-full rounded-2xl" />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
 
       {/* Why Choose Us Section */}
       <section className="bg-black py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20 relative overflow-hidden min-h-100 md:min-h-135 flex items-center justify-center">
         {/* Background Circles - Enhanced brightness */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute inset-0 hidden md:flex items-center justify-center pointer-events-none">
           <div className="relative w-[800px] h-[800px] md:w-[1000px] md:h-[1000px] lg:w-[1200px] lg:h-[1200px] opacity-60 brightness-150">
             <Image
               src="/circles.png"
@@ -493,10 +418,10 @@ export default function Home() {
           {/* Heading - MATCHED TO HERO */}
           <h2 className="text-white font-agenda mb-6 ">
             <span className="block text-4xl md:text-5xl lg:text-6xl font-semibold tracking-wider">
-              Why wait on phonecalls &
+              Tell us your city & get notified
             </span>
             <span className="block text-4xl md:text-5xl lg:text-5xl font-semibold tracking-wider mt-1">
-              Whatsapp replies?!
+              the moment we open doors
             </span>
           </h2>
 
@@ -508,11 +433,7 @@ export default function Home() {
               color: "rgba(121, 122, 121, 1)",
             }}
           >
-            Rizzerv is a straight-up platform for hairdressing, salons,
-            saree-draping, <br className="hidden md:block" />
-            spas, and much more. No, we don&apos;t charge extra. All we do is
-            list the <br className="hidden md:block" />
-            best service providers here.
+            Rizzerv brings all your grooming needs to one platform - Meet your stylists,<br /> MUAs, cosmetologists right here. Trusted and validated reviews <br /> from actual users. Join 5000+ beauty enthusiasts and be the first to know <br /> when we are live.
           </p>
 
           {/* CTA Button - MATCHED GRADIENT */}
@@ -531,7 +452,7 @@ export default function Home() {
         </div>
 
         {/* Orbiting Icons */}
-        <div className="absolute inset-0 max-w-7xl mx-auto pointer-events-none flex items-center justify-center">
+        <div className="absolute inset-0 hidden md:flex max-w-7xl mx-auto pointer-events-none items-center justify-center">
           <div className="relative w-full h-full max-w-[1200px] max-h-[1200px]">
             {/* Top Left */}
             <div className="absolute left-[24%] md:left-[24%] ">
@@ -611,19 +532,11 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Left Card - Customer (2 columns) */}
             <div className="lg:col-span-2 bg-[#0B0B0B] rounded-t-[32px] p-8  pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-[600px]">
-              {/* Icon Badge */}
-              <div className="mb-6">
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                  <img
-                    src="/rocket.png"
-                    alt="Customer"
-                    className="w-6 h-6 brightness-0"
-                  />
-                </div>
-              </div>
+
+              <p className="text-[#CCF656] text-md font-semibold mb-3">For Customers</p>
 
               {/* Heading */}
-              <h3 className="text-white  mb-4 font-agenda text-4xl font-semibold tracking-wider">
+              <h3 className="text-white  mb-4  text-4xl font-semiboldcondensed font-agenda tracking-wider">
                 We&apos;re here to make booking easy.
               </h3>
 
@@ -656,18 +569,10 @@ export default function Home() {
             {/* Right Card - Provider (3 columns) */}
             <div className="lg:col-span-3 bg-[#0B0B0B] rounded-t-[32px] p-8  pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-[600px]">
               {/* Icon Badge */}
-              <div className="mb-6">
-                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
-                  <img
-                    src="/rocket.png"
-                    alt="Provider"
-                    className="w-6 h-6 brightness-0"
-                  />
-                </div>
-              </div>
+              <p className="text-[#CCF656] text-md font-semibold mb-3">For Patners</p>
 
               {/* Heading */}
-              <h3 className="text-white  mb-4 font-agenda text-4xl font-semibold tracking-wider">
+              <h3 className="text-white  mb-4 text-4xl font-semiboldcondensed font-agenda  tracking-wider">
                 We help you get booked.
               </h3>
 
@@ -692,7 +597,13 @@ export default function Home() {
                   <img
                     src="/last2.png"
                     alt="Provider Dashboard"
-                    className="w-full h-full object-cover object-top rounded-t-2xl"
+                    className="
+                      w-full 
+                      h-[220px] sm:h-[260px] md:h-full 
+                      object-contain md:object-cover 
+                      object-top 
+                      rounded-t-2xl
+                    "
                   />
                 </div>
               </div>
@@ -701,7 +612,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
     </div>
   );
 }
