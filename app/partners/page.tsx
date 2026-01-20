@@ -375,7 +375,7 @@ export default function PartnersPage() {
             </div>
 
             {/* Right - Description */}
-            <div className=" ml-auto">
+            <div className="ml-auto text-center md:text-left">
               <p className="text-white/70 text-sm sm:text-base  md:text-base leading-relaxed">
                 From visibility to automated bookings, Rizzer gives <br /> you
                 the tools to attract more customers and run smarter.

@@ -110,11 +110,13 @@ export default function Home() {
         className="py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-12 bg-[rgba(13,13,13,1)]"
       >
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-semibold text-center mb-8 md:mb-12 semibold-condensed font-agenda">
+          <h2 className="text-white text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-5 sm:mb-6 text-center">
             Tired of &quot;Can you come back in an hour?&quot;
-            <br />
+           
+            <br className="hidden md:block" />
             from your salon.
           </h2>
+
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
 
@@ -183,23 +185,29 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-semibold mb-4 font-agenda">
+            <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4 text-center">
               One Platform to DISCOVER, BOOK & REVIEW
             </h2>
-            <p className="text-white/70 text-sm md:text-base max-w-2xl mx-auto">
+            <p className="text-white/70 text-sm  max-w-2xl mx-auto">
               Whether you&apos;re looking for Balayage in Bandra, a MUA in Besant Nagar or Botox in Indranagar, we will match you to the best!
             </p>
           </div>
           {/* Cards Layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
 
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-2 md:flex md:flex-col gap-4">
               <div className="flex justify-center">
-                <img src="/card01.png" alt="Card 1" className="rounded-2xl h-[280px] w-auto" />
-              </div>
+                <img
+                  src="/card01.png"
+                  alt="Card 1"
+                  className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto"
+                />              </div>
               <div className="flex justify-center">
-                <img src="/card02.png" alt="Card 2" className="rounded-2xl h-[280px] w-auto" />
-              </div>
+                <img
+                  src="/card02.png"
+                  alt="Card 2"
+                  className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto"
+                />              </div>
             </div>
 
             {/* Center Card - Coded instead of image */}
@@ -229,12 +237,13 @@ export default function Home() {
             </div>
 
 
-            <div className="flex flex-col gap-4">
+            <div className="grid grid-cols-2 md:flex md:flex-col gap-4">
+
               <div className="flex justify-center">
-                <img src="/card03.png" alt="Card 3" className="rounded-2xl h-[280px] w-auto" />
+                <img src="/card03.png" alt="Card 3" className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto" />
               </div>
               <div className="flex justify-center">
-                <img src="/card04.png" alt="Card 4" className="rounded-2xl h-[280px] w-auto" />
+                <img src="/card04.png" alt="Card 4" className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px]  w-auto" />
               </div>
             </div>
 
@@ -243,6 +252,8 @@ export default function Home() {
 
         </div>
       </section>
+
+
       {/* For Business Owners Section */}
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-black flex items-center justify-center">
         <div className="max-w-6xl mx-auto w-full">
@@ -252,18 +263,21 @@ export default function Home() {
             <div className="bg-gradient-to-b from-[#48937E] to-[#044130] rounded-3xl p-6 md:p-8">
 
               {/* Heading */}
-              <div className="mb-6">
-                <p className="text-[#CCF656] text-md font-semibold mb-3">For Business Owners</p>
+              <div className="mb-3">
+                <p className="text-[#CCF656] text-md font-semibold mb-1">For Business Owners</p>
 
-                <h2 className="text-white text-3xl md:text-4xl font-semibold font-agenda  mb-4">
+                <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-1 sm:mb-4">
                   List. Manage. Earn.
                 </h2>
 
-                <p className="text-white/90 text-sm md:text-base font-semibold mb-4">
-                  Register & Unlock <span className="text-[#CCF656]">FREE TRIAL</span> of RIZZerv Dashboard
+                <p className="text-white/90 text-sm md:text-base font-semibold mb-3 leading-tight">
+                  Register & Unlock <span className="text-[#CCF656]">FREE TRIAL</span>
+                  <br className="block md:hidden" />
+                  of RIZZerv Dashboard
                 </p>
 
-                <button className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold text-sm mb-6 hover:opacity-90 transition">
+
+                <button className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold text-sm mb-2 hover:opacity-90 transition">
                   Start Free Trial
                 </button>
               </div>
@@ -315,7 +329,7 @@ export default function Home() {
                 <div className="flex-1">
                   <p className="text-[#CCF656] text-md font-semibold mb-4">For Business Owners</p>
 
-                  <h2 className="text-white text-5xl  mb-4 font-semibold font-agenda">
+                  <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4">
                     List. Manage. Earn.
                   </h2>
 
@@ -406,26 +420,34 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Heading - MATCHED TO HERO */}
-          <h2 className="text-white font-agenda mb-6 ">
-            <span className=" text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-agenda font-semibold tracking-wider">
-              Tell us your city & get notified
+          <h2 className="text-white font-agenda mb-6">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wider">
+              Tell us your city & get notified the
+              <br className="hidden md:block" />
             </span>
-            <span className=" text-4xl sm:text-4xl md:text-5xl lg:text-6xl  font-agenda font-semibold tracking-wider mt-1">
-              the moment we open doors
+
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-wider mt-1 block">
+              moment we open doors
             </span>
           </h2>
 
-          {/* Description - MATCHED TO HERO SUBHEADING */}
+
           <p
-            className="text-sm md:text-base leading-relaxed font-normal max-w-3xl mx-auto mb-6"
+            className="text-sm leading-relaxed font-normal max-w-3xl mx-auto mb-6"
             style={{
               fontFamily: "Open Sans, sans-serif",
               color: "rgba(121, 122, 121, 1)",
             }}
           >
-            Rizzerv brings all your grooming needs to one platform - Meet your stylists,<br /> MUAs, cosmetologists right here. Trusted and validated reviews <br /> from actual users. Join 5000+ beauty enthusiasts and be the first to know <br /> when we are live.
+            Rizzerv brings all your grooming needs to one platform - Meet your stylists,
+            <br className="hidden md:block" />
+            MUAs, cosmetologists right here. Trusted and validated reviews
+            <br className="hidden md:block" />
+            from actual users. Join 5000+ beauty enthusiasts and be the first to know
+            <br className="hidden md:block" />
+            when we are live.
           </p>
+
 
           {/* CTA Button - MATCHED GRADIENT */}
           <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group mx-auto">
@@ -522,17 +544,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Left Card - Customer (2 columns) */}
-            <div className="lg:col-span-2 bg-[#0B0B0B] rounded-t-[32px] p-8  pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-[600px]">
+            <div className="lg:col-span-2 bg-[#0B0B0B] rounded-t-[32px] p-4 pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-auto lg:h-[600px]">
 
               <p className="text-[#CCF656] text-md font-semibold mb-3">For Customers</p>
 
               {/* Heading */}
-              <h3 className="text-white  mb-4  text-4xl font-semiboldcondensed font-agenda tracking-wider">
+              <h3 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4 ">
                 We&apos;re here to make booking easy.
               </h3>
 
               {/* Description */}
-              <p className="text-white/60 text-sm md:text-base mb-8 leading-relaxed">
+              <p className="text-white/60 text-sm  mb-8 leading-relaxed">
                 Book appointments instantly, anytime; no calls, no waiting, no
                 stress. Discover verified salons and wellness experts near you!
               </p>
@@ -551,24 +573,28 @@ export default function Home() {
                   <img
                     src="/last1.png"
                     alt="Customer App"
-                    className="w-full h-full object-cover object-top"
+                    className=" w-full 
+                      h-[220px] sm:h-[260px] md:h-full 
+                      object-contain md:object-cover 
+                      object-top 
+                      rounded-t-2xl"
                   />
                 </div>
               </div>
             </div>
 
             {/* Right Card - Provider (3 columns) */}
-            <div className="lg:col-span-3 bg-[#0B0B0B] rounded-t-[32px] p-8  pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-[600px]">
+            <div className="lg:col-span-3 bg-[#0B0B0B] rounded-t-[32px] p-4 pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-auto lg:h-[600px]">
               {/* Icon Badge */}
               <p className="text-[#CCF656] text-md font-semibold mb-3">For Patners</p>
 
               {/* Heading */}
-              <h3 className="text-white  mb-4 text-4xl font-semiboldcondensed font-agenda  tracking-wider">
+              <h3 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4 ">
                 We help you get booked.
               </h3>
 
               {/* Description */}
-              <p className="text-white/60 text-sm md:text-base mb-8 leading-relaxed">
+              <p className="text-white/60 text-sm mb-8 leading-relaxed">
                 List your services, manage appointments, and get discovered by
                 real customers - all from one simple dashboard. Just better
                 visibility and more bookings.
