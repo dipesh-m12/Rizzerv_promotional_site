@@ -355,7 +355,7 @@ export default function Home() {
               {/* Image */}
               <div className="flex justify-center rounded-2xl overflow-hidden">
                 <img
-                  src="/laptop-phone.png"
+                  src="/Laptop-phone.png"
                   alt="Dashboard"
                   className="w-full h-auto"
                 />
