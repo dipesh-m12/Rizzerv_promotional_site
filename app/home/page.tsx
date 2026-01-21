@@ -425,7 +425,7 @@ export default function Home() {
                 <div className="flex justify-center">
                   <div className="w-full max-w-lg">
                     <img
-                      src="/laptop.png"
+                      src="/Laptop.png"
                       alt="Dashboard"
                       className="w-full rounded-2xl"
                     />
