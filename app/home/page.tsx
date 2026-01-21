@@ -8,7 +8,7 @@ import Image from "next/image";
 import { HiUserGroup } from "react-icons/hi2";
 import { MdDashboard } from "react-icons/md";
 import { FiCalendar } from "react-icons/fi";
-
+import OrbitingGallery from "@/components/OrbitingGallery";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -17,12 +17,32 @@ export default function Home() {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const sectionRef = useRef(null);
 
+  // Configuration
+  const HERO_IMAGE = "/mobile_hero_home.png";
+  const RAW_IMAGES = ["/img1.jpg", "/img2.png", "/img3.jpg", "/img4.jpg"];
+
   // Profile cards data
   const profileCards = [
-    { image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop", name: "Priya's Salon" },
-    { image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop", name: "Elite Barbers" },
-    { image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop", name: "Glamour Studio" },
-    { image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=600&fit=crop", name: "Urban Cuts" },
+    {
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop",
+      name: "Priya's Salon",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop",
+      name: "Elite Barbers",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=600&fit=crop",
+      name: "Glamour Studio",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=600&fit=crop",
+      name: "Urban Cuts",
+    },
   ];
 
   useEffect(() => {
@@ -32,7 +52,7 @@ export default function Home() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     if (sectionRef.current) {
@@ -83,16 +103,23 @@ export default function Home() {
   return (
     <div className="bg-black">
       {/* Hero Section with Tinder Animation */}
-      <section className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-12 py-12 bg-black relative overflow-hidden">
-        <div className="max-w-7xl w-full mx-auto">
-          {/* Heading */}
-          <div className="text-center mb-8 md:mb-12">
-            <h1 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 md:mb-4 font-semibold font-agenda">
-              The best SALONS & STYLISTS aren&apos;t
-              <br />
+      <div className="bg-black min-h-screen">
+        {/* 1. SCREEN WRAPPER 
+         - h-[100dvh]: Forces exact screen height (no scroll).
+         - flex-col: Stacks text on top, gallery on bottom.
+      */}
+        <section className="relative w-full h-[100dvh] max-h-[100dvh] flex flex-col items-center overflow-hidden bg-black">
+          {/* 2. TEXT CONTENT 
+           - Added pt-12 md:pt-20 to give space from top.
+           - pb-8 adds the "gap" you requested before the gallery starts.
+        */}
+          <div className="w-full max-w-7xl mx-auto px-4 md:px-8 z-20 pt-12 md:pt-14 pb-6 text-center shrink-0">
+            <h1 className="text-white text-4xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 font-semibold font-agenda leading-tight">
+              The best SALONS & STYLISTS aren&apos;t{" "}
+              <br className="hidden md:block" />
               advertising, they&apos;re getting BOOKED!
             </h1>
-            <p className="text-white/80 text-base md:text-lg mb-6 md:mb-8">
+            <p className="text-white/80 text-base md:text-lg mb-4 max-w-2xl mx-auto">
               Book an appointment anytime, anywhere
             </p>
             <button className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-[#CCF656] to-[#A8D943] text-black text-sm md:text-base font-semibold hover:opacity-90 transition-opacity">
@@ -100,9 +127,16 @@ export default function Home() {
             </button>
           </div>
 
-
-        </div>
-      </section>
+          {/* 3. GALLERY CONTAINER
+           - flex-1: Takes up ALL remaining space.
+           - min-h-0: Prevents flex overflow bugs.
+           - w-full: Centers the component horizontally.
+        */}
+          <div className="flex-1 w-full min-h-0 flex items-end justify-center">
+            <OrbitingGallery heroImage={HERO_IMAGE} images={RAW_IMAGES} />
+          </div>
+        </section>
+      </div>
 
       {/* Stats Section */}
       <section
@@ -112,23 +146,21 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-white text-2xl sm:text-2xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-5 sm:mb-6 text-center">
             Tired of &quot;Can you come back in an hour?&quot;
-           
             <br className="hidden md:block" />
             from your salon.
           </h2>
 
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 place-items-center">
-
             {/* Stat 1 */}
-            <div className="bg-[#0D0D0D] 
+            <div
+              className="bg-[#0D0D0D] 
         w-[220px] h-[220px] 
         sm:w-[240px] sm:h-[240px] 
         md:w-[260px] md:h-[260px] 
         lg:w-[280px] lg:h-[280px]
         rounded-full flex flex-col items-center justify-center 
-        p-5 border border-white hover:border-gray-700 transition-all duration-300">
-
+        p-5 border border-white hover:border-gray-700 transition-all duration-300"
+            >
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
                 {counts.stat1}
                 <span className="text-2xl md:text-3xl">%</span>
@@ -139,14 +171,15 @@ export default function Home() {
             </div>
 
             {/* Stat 2 */}
-            <div className="bg-[#CCF656] 
+            <div
+              className="bg-[#CCF656] 
         w-[220px] h-[220px] 
         sm:w-[240px] sm:h-[240px] 
         md:w-[260px] md:h-[260px] 
         lg:w-[280px] lg:h-[280px]
         rounded-full flex flex-col items-center justify-center 
-        p-5 hover:scale-105 transition-all duration-300">
-
+        p-5 hover:scale-105 transition-all duration-300"
+            >
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-3">
                 {counts.stat2}
                 <span className="text-2xl md:text-3xl">x</span>
@@ -157,14 +190,15 @@ export default function Home() {
             </div>
 
             {/* Stat 3 */}
-            <div className="bg-[#0D0D0D] 
+            <div
+              className="bg-[#0D0D0D] 
         w-[220px] h-[220px] 
         sm:w-[240px] sm:h-[240px] 
         md:w-[260px] md:h-[260px] 
         lg:w-[280px] lg:h-[280px]
         rounded-full flex flex-col items-center justify-center 
-        p-5 border border-white hover:border-gray-700 transition-all duration-300">
-
+        p-5 border border-white hover:border-gray-700 transition-all duration-300"
+            >
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
                 {counts.stat3}
                 <span className="text-2xl md:text-3xl">%</span>
@@ -173,11 +207,9 @@ export default function Home() {
                 Customers prefer Online Booking
               </p>
             </div>
-
           </div>
         </div>
       </section>
-
 
       {/* Why RIZZerv Section */}
       {/* Why RIZZerv Section */}
@@ -189,30 +221,32 @@ export default function Home() {
               One Platform to DISCOVER, BOOK & REVIEW
             </h2>
             <p className="text-white/70 text-sm  max-w-2xl mx-auto">
-              Whether you&apos;re looking for Balayage in Bandra, a MUA in Besant Nagar or Botox in Indranagar, we will match you to the best!
+              Whether you&apos;re looking for Balayage in Bandra, a MUA in
+              Besant Nagar or Botox in Indranagar, we will match you to the
+              best!
             </p>
           </div>
           {/* Cards Layout */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
-
             <div className="grid grid-cols-2 md:flex md:flex-col gap-4">
               <div className="flex justify-center">
                 <img
                   src="/card01.png"
                   alt="Card 1"
                   className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto"
-                />              </div>
+                />{" "}
+              </div>
               <div className="flex justify-center">
                 <img
                   src="/card02.png"
                   alt="Card 2"
                   className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto"
-                />              </div>
+                />{" "}
+              </div>
             </div>
 
             {/* Center Card - Coded instead of image */}
             <div className="relative rounded-3xl overflow-hidden border border-white/30  flex flex-col items-center justify-between py-6 md:py-8 h-[520px] md:h-[568px]">
-
               {/* Green glow gradient at bottom */}
               <div className="absolute bottom-0 left-0 w-full h-[45%] bg-gradient-to-t from-[#5a6f1f]/60 to-transparent" />
 
@@ -222,60 +256,63 @@ export default function Home() {
                   Why RIZZerv?
                 </h3>
                 <p className="text-white/70 text-md md:text-base max-w-xs mx-auto pt-4">
-                  Every salon and professional is verified and reviewed, so you book with confidence, every time.
+                  Every salon and professional is verified and reviewed, so you
+                  book with confidence, every time.
                 </p>
               </div>
 
               {/* Phone mockup image */}
               <div className="relative z-10 mt-6 pt-[60px] flex justify-center">
                 <img
-                  src="/cardphoneimg.png"   // ← change to your phone image
+                  src="/cardphoneimg.png" // ← change to your phone image
                   alt="App Preview"
                   className="w-[220px] md:w-[260px] object-contain"
                 />
               </div>
             </div>
 
-
             <div className="grid grid-cols-2 md:flex md:flex-col gap-4">
-
               <div className="flex justify-center">
-                <img src="/card03.png" alt="Card 3" className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto" />
+                <img
+                  src="/card03.png"
+                  alt="Card 3"
+                  className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px] w-auto"
+                />
               </div>
               <div className="flex justify-center">
-                <img src="/card04.png" alt="Card 4" className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px]  w-auto" />
+                <img
+                  src="/card04.png"
+                  alt="Card 4"
+                  className="rounded-2xl h-[180px] sm:h-[200px] md:h-[260px]  w-auto"
+                />
               </div>
             </div>
-
           </div>
-
-
         </div>
       </section>
-
 
       {/* For Business Owners Section */}
       <section className="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-black flex items-center justify-center">
         <div className="max-w-6xl mx-auto w-full">
-
           {/* ---------------- MOBILE LAYOUT ---------------- */}
           <div className="lg:hidden w-[90%] max-w-md mx-auto">
             <div className="bg-gradient-to-b from-[#48937E] to-[#044130] rounded-3xl p-6 md:p-8">
-
               {/* Heading */}
               <div className="mb-3">
-                <p className="text-[#CCF656] text-md font-semibold mb-1">For Business Owners</p>
+                <p className="text-[#CCF656] text-md font-semibold mb-1">
+                  For Business Owners
+                </p>
 
                 <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-1 sm:mb-4">
                   List. Manage. Earn.
                 </h2>
 
                 <p className="text-white/90 text-sm md:text-base font-semibold mb-3 leading-tight">
-                  Register & Unlock <span className="text-[#CCF656]">FREE TRIAL</span>
+                  Register & Unlock{" "}
+                  <span className="text-[#CCF656]">FREE TRIAL</span>
                   <br className="block md:hidden" />
                   of RIZZerv Dashboard
                 </p>
-
 
                 <button className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold text-sm mb-2 hover:opacity-90 transition">
                   Start Free Trial
@@ -288,25 +325,27 @@ export default function Home() {
                   {
                     icon: <HiUserGroup className="text-white text-lg" />,
                     title: "Reach More Customers",
-                    desc: "Get discovered by new customers daily!"
+                    desc: "Get discovered by new customers daily!",
                   },
                   {
                     icon: <MdDashboard className="text-white text-lg" />,
                     title: "Ease Management",
-                    desc: "Dashboard provides full control to manage your appointments, staff and everything else"
+                    desc: "Dashboard provides full control to manage your appointments, staff and everything else",
                   },
                   {
                     icon: <FiCalendar className="text-white text-lg" />,
                     title: "No Friction",
-                    desc: "Reduce Last-minute Cancellations & No-Shows!"
-                  }
+                    desc: "Reduce Last-minute Cancellations & No-Shows!",
+                  },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold text-base mb-1">{item.title}</h3>
+                      <h3 className="text-white font-semibold text-base mb-1">
+                        {item.title}
+                      </h3>
                       <p className="text-white/80 text-xs">{item.desc}</p>
                     </div>
                   </div>
@@ -315,7 +354,11 @@ export default function Home() {
 
               {/* Image */}
               <div className="flex justify-center rounded-2xl overflow-hidden">
-                <img src="/laptop-phone.png" alt="Dashboard" className="w-full h-auto" />
+                <img
+                  src="/laptop-phone.png"
+                  alt="Dashboard"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </div>
@@ -324,17 +367,20 @@ export default function Home() {
           <div className="hidden lg:block">
             <div className="bg-gradient-to-b from-[#48937E] to-[#044130] rounded-3xl py-12 pl-12">
               <div className="flex items-center justify-between gap-12">
-
                 {/* Left Content */}
                 <div className="flex-1">
-                  <p className="text-[#CCF656] text-md font-semibold mb-4">For Business Owners</p>
+                  <p className="text-[#CCF656] text-md font-semibold mb-4">
+                    For Business Owners
+                  </p>
 
                   <h2 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4">
                     List. Manage. Earn.
                   </h2>
 
                   <p className="text-white/90 text-lg font-semibold mb-6">
-                    Register & Unlock <span className="text-[#CCF656]">FREE TRIAL</span> of <br /> RIZZerv Dashboard
+                    Register & Unlock{" "}
+                    <span className="text-[#CCF656]">FREE TRIAL</span> of <br />{" "}
+                    RIZZerv Dashboard
                   </p>
 
                   <button className="px-8 py-3 rounded-full bg-white text-gray-900 font-semibold mb-12 hover:opacity-90 transition">
@@ -347,25 +393,27 @@ export default function Home() {
                       {
                         icon: <HiUserGroup className="text-white text-xl" />,
                         title: "Reach More Customers",
-                        desc: "Get discovered by new customers daily!"
+                        desc: "Get discovered by new customers daily!",
                       },
                       {
                         icon: <MdDashboard className="text-white text-xl" />,
                         title: "Ease Management",
-                        desc: "Dashboard provides full control to manage your appointments, staff and everything else"
+                        desc: "Dashboard provides full control to manage your appointments, staff and everything else",
                       },
                       {
                         icon: <FiCalendar className="text-white text-xl" />,
                         title: "No Friction",
-                        desc: "Reduce Last-minute Cancellations & No-Shows!"
-                      }
+                        desc: "Reduce Last-minute Cancellations & No-Shows!",
+                      },
                     ].map((item, i) => (
                       <div key={i} className="flex gap-4">
                         <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center flex-shrink-0">
                           {item.icon}
                         </div>
                         <div>
-                          <h3 className="text-white font-semibold text-lg mb-1">{item.title}</h3>
+                          <h3 className="text-white font-semibold text-lg mb-1">
+                            {item.title}
+                          </h3>
                           <p className="text-white/80 text-sm">{item.desc}</p>
                         </div>
                       </div>
@@ -376,18 +424,18 @@ export default function Home() {
                 {/* Right Image */}
                 <div className="flex justify-center">
                   <div className="w-full max-w-lg">
-                    <img src="/laptop.png" alt="Dashboard" className="w-full rounded-2xl" />
+                    <img
+                      src="/laptop.png"
+                      alt="Dashboard"
+                      className="w-full rounded-2xl"
+                    />
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
-
         </div>
       </section>
-
-
 
       {/* Why Choose Us Section */}
       <section className="bg-black py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16 xl:px-20 relative overflow-hidden min-h-100 md:min-h-135 flex items-center justify-center">
@@ -431,7 +479,6 @@ export default function Home() {
             </span>
           </h2>
 
-
           <p
             className="text-sm leading-relaxed font-normal max-w-3xl mx-auto mb-6"
             style={{
@@ -439,15 +486,16 @@ export default function Home() {
               color: "rgba(121, 122, 121, 1)",
             }}
           >
-            Rizzerv brings all your grooming needs to one platform - Meet your stylists,
+            Rizzerv brings all your grooming needs to one platform - Meet your
+            stylists,
             <br className="hidden md:block" />
             MUAs, cosmetologists right here. Trusted and validated reviews
             <br className="hidden md:block" />
-            from actual users. Join 5000+ beauty enthusiasts and be the first to know
+            from actual users. Join 5000+ beauty enthusiasts and be the first to
+            know
             <br className="hidden md:block" />
             when we are live.
           </p>
-
 
           {/* CTA Button - MATCHED GRADIENT */}
           <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group mx-auto">
@@ -545,8 +593,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Left Card - Customer (2 columns) */}
             <div className="lg:col-span-2 bg-[#0B0B0B] rounded-t-[32px] p-4 pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-auto lg:h-[600px]">
-
-              <p className="text-[#CCF656] text-md font-semibold mb-3">For Customers</p>
+              <p className="text-[#CCF656] text-md font-semibold mb-3">
+                For Customers
+              </p>
 
               {/* Heading */}
               <h3 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4 ">
@@ -586,7 +635,9 @@ export default function Home() {
             {/* Right Card - Provider (3 columns) */}
             <div className="lg:col-span-3 bg-[#0B0B0B] rounded-t-[32px] p-4 pb-0 flex flex-col border-4 border-b-0 border-[#121212] overflow-hidden h-auto lg:h-[600px]">
               {/* Icon Badge */}
-              <p className="text-[#CCF656] text-md font-semibold mb-3">For Patners</p>
+              <p className="text-[#CCF656] text-md font-semibold mb-3">
+                For Patners
+              </p>
 
               {/* Heading */}
               <h3 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-agenda font-semibold mb-3 sm:mb-4 ">
@@ -628,8 +679,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-
     </div>
   );
 }

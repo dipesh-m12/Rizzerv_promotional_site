@@ -59,11 +59,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Navbar />
+      {/* Navbar and Footer MUST be inside the body */}
       <body className={`${openSans.variable} ${agenda.variable} antialiased`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }
