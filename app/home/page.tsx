@@ -46,6 +46,17 @@ export default function Home() {
     },
   ];
 
+  // Scroll to waitlist form if navigated with hash
+  useEffect(() => {
+    if (window.location.hash === "#waitlist-form") {
+      setTimeout(() => {
+        document
+          .getElementById("waitlist-form")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -123,7 +134,14 @@ export default function Home() {
             <p className="text-white/80 text-base md:text-lg mb-4 max-w-2xl mx-auto">
               Book an appointment anytime, anywhere
             </p>
-            <button className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-[#CCF656] to-[#A8D943] text-black text-sm md:text-base font-semibold hover:opacity-90 transition-opacity">
+            <button
+              onClick={() =>
+                document
+                  .getElementById("waitlist-form")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="px-6 md:px-8 py-3 rounded-full bg-gradient-to-r from-[#CCF656] to-[#A8D943] text-black text-sm md:text-base font-semibold hover:opacity-90 transition-opacity"
+            >
               Get early access
             </button>
           </div>
@@ -315,7 +333,14 @@ export default function Home() {
                   of RIZZerv Dashboard
                 </p>
 
-                <button className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold text-sm mb-2 hover:opacity-90 transition">
+                <button
+                  onClick={() =>
+                    document
+                      .getElementById("waitlist-form")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                  className="px-6 py-3 rounded-full bg-white text-gray-900 font-semibold text-sm mb-2 hover:opacity-90 transition"
+                >
                   Start Free Trial
                 </button>
               </div>
@@ -499,13 +524,15 @@ export default function Home() {
           </p>
 
           {/* CTA Button - MATCHED GRADIENT */}
-          <button className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group mx-auto">
-            <span
-              onClick={() => router.push(verceldeploymentainextstar)}
-              className="relative z-10"
-            >
-              Join the waiting list
-            </span>
+          <button
+            onClick={() =>
+              document
+                .getElementById("waitlist-form")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="relative overflow-hidden w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm font-semibold transition-all duration-300 group mx-auto"
+          >
+            <span className="relative z-10">Join the waiting list</span>
             {/* Shine effect layer 1 */}
             <div className="absolute inset-0 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
             {/* Shine effect layer 2 - delayed */}
@@ -611,7 +638,11 @@ export default function Home() {
 
               {/* CTA Button */}
               <button
-                onClick={() => router.push(verceldeploymentainextstar)}
+                onClick={() =>
+                  document
+                    .getElementById("waitlist-form")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white text-black text-sm font-semibold hover:opacity-90 transition-opacity mb-8"
               >
                 Get early access
@@ -654,7 +685,11 @@ export default function Home() {
 
               {/* CTA Button */}
               <button
-                onClick={() => router.push(verceldeploymentainextstar)}
+                onClick={() =>
+                  document
+                    .getElementById("waitlist-form")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="w-fit px-8 py-3 rounded-[80px] bg-gradient-to-r from-[#CCF656] to-white text-black text-sm font-semibold hover:opacity-90 transition-opacity mb-8"
               >
                 Register as a provider

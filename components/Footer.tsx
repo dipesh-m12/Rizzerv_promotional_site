@@ -190,7 +190,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white overflow-hidden">
+    <footer id="waitlist-form" className="bg-black text-white overflow-hidden">
       <Toaster position="top-center" />
       <div className="w-full">
         {/* ── Desktop Layout (lg +) ── */}

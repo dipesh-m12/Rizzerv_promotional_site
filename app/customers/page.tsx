@@ -218,7 +218,7 @@ export default function HeroSection() {
 
                   {/* CTA Button - MATCHED TO HOME */}
                   <button
-                    onClick={() => router.push(verceldeploymentainextstar)}
+                    onClick={() => router.push("/home#waitlist-form")}
                     className="relative overflow-hidden w-fit px-8 py-3 md:py-4 rounded-full bg-gradient-to-r from-[#CCF656] to-white shadow-[1px_1px_2px_0px_rgba(0,0,0,1)] text-black text-sm md:text-base font-semibold transition-all duration-300 group hover:scale-105"
                   >
                     <span className="relative z-10">Get early access</span>
