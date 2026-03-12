@@ -21,10 +21,18 @@ interface OrbitingGalleryProps {
 export default function OrbitingGallery({
   heroImage,
   images,
-  desktopRadius = { x: 750, z: 850 },
-  mobileRadius = { x: 260, z: 360 },
-  desktopCardSize = { w: 300, h: 200 },
-  mobileCardSize = { w: 100, h: 70 },
+  // 1. INCREASED RADIUS (Middle ground)
+  // 'x' increased from 600 -> 750 (Wider arc)
+  // 'z' increased from 220 -> 260 (Slightly deeper)
+  desktopRadius = { x: 750, z: 260 },
+  mobileRadius = { x: 340, z: 160 },
+
+  // 2. INCREASED HEIGHT & SIZE
+  // Height: 120 -> 160 (Taller)
+  // Width: 180 -> 240 (Proportional)
+  desktopCardSize = { w: 240, h: 160 },
+  mobileCardSize = { w: 120, h: 80 },
+
   duration = 35000,
 }: OrbitingGalleryProps) {
   const galleryItems = [...images, ...images, ...images];
@@ -34,13 +42,9 @@ export default function OrbitingGallery({
   const activeCardSize = isMobile ? mobileCardSize : desktopCardSize;
 
   return (
-    // CHANGE 1: Removed 'h-[100dvh]'.
-    // Added specific heights: h-[400px] on mobile, h-[600px] on desktop.
-    // This forces the component to only take up this much space in your layout.
-    <div className="relative w-full h-[400px] md:h-[600px] flex flex-col items-center justify-center overflow-visible bg-black perspective-[3000px]">
+    <div className="relative w-full h-[400px] md:h-[600px] flex flex-col items-center justify-center overflow-hidden bg-black perspective-[800px]">
       {/* --- CAROUSEL WRAPPER --- */}
-      {/* Position: Absolute centered. The 'translate-y' tweaks vertical alignment relative to the phone */}
-      <div className="absolute w-full h-full flex items-center justify-center z-10 pointer-events-none translate-y-[-10%] sm:translate-y-[10%]">
+      <div className="absolute w-full h-full flex items-center justify-center z-10 pointer-events-none translate-y-[-10%] sm:translate-y-[10%] [transform-style:preserve-3d]">
         <CarouselMerryGoRound
           items={galleryItems}
           radius={activeRadius}
@@ -50,9 +54,8 @@ export default function OrbitingGallery({
       </div>
 
       {/* --- HERO PHONE --- */}
-      {/* Position: Relative so it sits in the flow (though parent height is fixed) */}
       <div className="relative z-30 translate-y-[-10%] sm:translate-y-[20%]">
-        <div className="w-[160px] md:w-[340px] relative aspect-[9/19] drop-shadow-2xl">
+        <div className="w-[160px] md:w-[320px] relative aspect-[9/19] drop-shadow-2xl">
           <div className="absolute -inset-1 rounded-[3rem] blur-md bg-white/10" />
           <Image
             src={heroImage}
@@ -64,13 +67,12 @@ export default function OrbitingGallery({
         </div>
       </div>
 
-      {/* Optional: Bottom Fade (Only if you want it fading into the section bg) */}
-      {/* <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black to-transparent z-40" /> */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black via-transparent to-transparent z-40" />
     </div>
   );
 }
 
-// --- SUB-COMPONENTS (Logic unchanged) ---
+// --- SUB-COMPONENTS ---
 
 interface CarouselProps {
   items: string[];
@@ -88,7 +90,7 @@ function CarouselMerryGoRound({
   const time = useTime();
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
+    <div className="relative w-full h-full flex items-center justify-center [transform-style:preserve-3d]">
       {items.map((src, index) => (
         <MerryGoRoundItem
           key={`gallery-${index}`}
@@ -129,15 +131,19 @@ function MerryGoRoundItem({
 
   const transform = useTransform(time, (t) => {
     const currentProg = (t % duration) / duration;
-    const angle = initialAngle + currentProg * 2 * Math.PI + Math.PI / 2;
 
-    const xOffset = radius.x * 0.1;
-    const x = Math.cos(angle) * radius.x + xOffset;
+    // Direction: Right to Left (+)
+    const angle = initialAngle + currentProg * 2 * Math.PI - Math.PI / 2;
+
+    const x = Math.cos(angle) * radius.x;
     const z = Math.sin(angle) * radius.z;
-    const rotateY = (angle * 180) / Math.PI + 90;
+
+    // Skew: Reversed (-90)
+    const rotateY = -((angle * 180) / Math.PI + 90);
+
     const depth = (z + radius.z) / (2 * radius.z);
     const scale = 0.5 + depth * 0.5;
-    const opacity = Math.pow(depth, 1.5);
+    const opacity = Math.pow(depth, 3);
 
     return { x, z, rotateY, scale, opacity };
   });
@@ -163,22 +169,22 @@ function MerryGoRoundItem({
         opacity,
         zIndex: useTransform(z, (currentZ) => Math.round(currentZ + 2000)),
       }}
+      className="will-change-transform"
     >
-      <div className="relative w-full h-full rounded-[8px] md:rounded-[14px] overflow-hidden border border-white/10 bg-[#1a1a1a] shadow-[0_10px_30px_rgba(0,0,0,0.5)] will-change-transform">
+      <div className="relative w-full h-full rounded-[12px] overflow-hidden border border-white/10 bg-[#050505] shadow-[0_15px_40px_rgba(0,0,0,0.8)]">
         <Image
           src={src}
           alt="Gallery"
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 30vw, 20vw"
+          sizes="(max-width: 768px) 25vw, 20vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-black/80 via-transparent to-white/20" />
       </div>
     </motion.div>
   );
 }
 
-// --- UTILS ---
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {

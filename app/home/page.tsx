@@ -9,6 +9,7 @@ import { HiUserGroup } from "react-icons/hi2";
 import { MdDashboard } from "react-icons/md";
 import { FiCalendar } from "react-icons/fi";
 import OrbitingGallery from "@/components/OrbitingGallery";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -679,6 +680,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
