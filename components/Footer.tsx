@@ -153,11 +153,22 @@ export default function Footer() {
       });
 
       // Send notification email
+      //   await fetch("https://email-service-tk9b.vercel.app/api/email", {
+      //     method: "POST",
+      //     headers: { "Content-Type": "application/json" },
+      //     body: JSON.stringify({
+      //       email: "mavinash422@gmail.com",
+      //       subject: "New Rizzerv Waitlist Signup",
+      //       body: `New signup from the Rizzerv waitlist!\n\nName: ${fullName.trim()}\nEmail: ${email.trim()}\nCity: ${city}\nInterests: ${interests.length > 0 ? interests.join(", ") : "None selected"}`,
+      //       priority: "high",
+      //       category: "leads",
+      //     }),
+      //   });
       await fetch("https://email-service-tk9b.vercel.app/api/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: "mavinash422@gmail.com",
+          email: "firebaserizzerv@gmail.com",
           subject: "New Rizzerv Waitlist Signup",
           body: `New signup from the Rizzerv waitlist!\n\nName: ${fullName.trim()}\nEmail: ${email.trim()}\nCity: ${city}\nInterests: ${interests.length > 0 ? interests.join(", ") : "None selected"}`,
           priority: "high",
