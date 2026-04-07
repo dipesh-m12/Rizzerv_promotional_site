@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import toast, { Toaster } from "react-hot-toast";
+import { DownloadSourceFooter } from "@/components/DownloadSourceFooter";
 
 const CITIES = [
   "Mumbai",
@@ -235,6 +236,12 @@ export default function Footer() {
                     FOR CUSTOMERS
                   </button>
                 </div>
+                <div className="mb-6">
+                  <p className="text-white/60 text-xs uppercase tracking-wider mb-3">
+                    Get the app
+                  </p>
+                  <DownloadSourceFooter />
+                </div>
                 <p className="text-white text-[14px] font-light">
                   Copyright © RIZZerv 2026
                 </p>
@@ -447,6 +454,13 @@ export default function Footer() {
             </form>
           </div>
 
+          <div className="px-10 pb-2">
+            <p className="text-white/60 text-xs uppercase tracking-wider mb-3 text-center">
+              Get the app
+            </p>
+            <DownloadSourceFooter align="center" />
+          </div>
+
           {/* Nav + Copyright */}
           <div className="flex items-center justify-center gap-2 pt-4 mb-4">
             <button
@@ -584,6 +598,13 @@ export default function Footer() {
                 </button>
               </div>
             </form>
+          </div>
+
+          <div className="px-4 pb-2">
+            <p className="text-white/60 text-xs uppercase tracking-wider mb-3 text-center">
+              Get the app
+            </p>
+            <DownloadSourceFooter align="center" />
           </div>
 
           {/* Single Line Navigation */}
